@@ -17,11 +17,11 @@
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
 <%-- <c:if test="${empty name }"><c:redirect url="../member/login.jsp" /></c:if> --%>
-<div id="content" class="panel-body">
+<div id="content" >
 	<div>
 		<%-- <h3>${name }님 &nbsp; &nbsp; <a href="../LogoutCtrl">로그아웃</a></h3> --%>
 	</div>
-	<h2 class="notification is-primary">글 목록</h2>
+	<h2>글 목록</h2>
 	<form method="post" action="${path1 }/GetBoardSearchCtrl">
 		<table class="table" id="search_tb">
 			<tr>
@@ -62,6 +62,9 @@
 		</tbody>
 	</table>
 </div>
+<jsp:include page="../footer.jsp"></jsp:include>
+
+
 <jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>

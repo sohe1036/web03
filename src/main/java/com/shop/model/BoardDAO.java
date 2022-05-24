@@ -156,12 +156,11 @@ public class BoardDAO {
 		public int editBoard(BoardVO vo) {
 			try {
 				conn = JDBCConnection.getConnection();
-				sql = "update board set title=?, content=?, name=?, regdate=sysdate where seq=?";
+				sql = "update board set title=?, content=?, regdate=sysdate where seq=?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, vo.getTitle());
 				pstmt.setString(2, vo.getContent());
-				pstmt.setString(3,vo.getName());
-				pstmt.setInt(4, vo.getSeq());
+				pstmt.setInt(3, vo.getSeq());
 				cnt = pstmt.executeUpdate();
 			} catch(ClassNotFoundException e) {
 				System.out.println("드라이버 로딩이 실패되었습니다.");
@@ -177,13 +176,13 @@ public class BoardDAO {
 			}
 			return cnt;
 		}
-		
-		public int delBoard(BoardVO vo) {
+			
+		public int delBoard(int num) {			//삭제는 VO객체안만들어도되니까 num만받아
 			try {
 				conn = JDBCConnection.getConnection();
 				sql = "delete from board where seq=?";
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, vo.getSeq());
+				pstmt.setInt(1, num);
 				cnt = pstmt.executeUpdate();
 			} catch(ClassNotFoundException e) {
 				System.out.println("드라이버 로딩이 실패되었습니다.");
