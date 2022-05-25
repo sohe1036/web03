@@ -12,6 +12,7 @@
 <style>
 #lst_tb { width:700px; margin:0 auto; }
 .navbar-link:not(.is-arrowless)::after { display:none; }
+.search_warp { width: 800px; margin: 0 auto;}
 </style>
 </head>
 <body>
@@ -21,21 +22,23 @@
 	<div>
 		<%-- <h3>${name }님 &nbsp; &nbsp; <a href="../LogoutCtrl">로그아웃</a></h3> --%>
 	</div>
-	<h2>글 목록</h2>
-	<form method="post" action="${path1 }/GetBoardSearchCtrl">
-		<table class="table" id="search_tb">
-			<tr>
-				<td>
-					<select name="searchCondition">
-						<option value="title">제목</option>
-						<option value="content">내용</option>
-					</select>
-					<input type="text" name="searchKeyword" />
-					<input type="submit" value="검색" />
-				</td>
-			</tr>
-		</table>
-	</form>
+	<div class="search_warp">
+		<h2 class="title is-3">글 목록</h2>
+		<form method="post" action="${path1 }/GetBoardSearchCtrl">
+			<table class="table" id="search_tb">
+				<tr>
+					<td>
+						<select name="searchCondition" >
+							<option value="title">제목</option>
+							<option value="content">내용</option>
+						</select>
+						<input type="text" name="searchKeyword" />
+						<input type="submit" value="검색" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
 	<table class="table" id="lst_tb">
 		<thead>
 			<tr>

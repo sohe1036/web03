@@ -16,9 +16,9 @@ class VOTest {
 	
 	private BoardVO board;
 	private MemberVO member;
-	private String data1 = "제목";
-	private String data2 = "admin"; 
-
+	private String data1 = "타이틀 테스트";
+	private String data2 = "관리자";
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		System.out.println("인스턴스 시작");
@@ -33,27 +33,28 @@ class VOTest {
 	void setUp() throws Exception {
 		board = new BoardVO();
 		member = new MemberVO();
-		System.out.println("VO 테스트 시작");
+		System.out.println("테스트 시작");
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
-		System.out.println("VO 테스트 종료");
+		System.out.println("테스트 종료");
 	}
 
 	@Test
-	void VOtest1() {
-		board.setTitle("제목");
-		System.out.println("데이터: "+board.getTitle());
+	void test1() {
+		board.setTitle("타이틀 테스트");
+		System.out.println("데이터 : "+board.getTitle());
 		assertEquals(data1, board.getTitle());
-		fail("VOTest1 False");
+		fail("VOTest1 실패");
+	}
+	
+	@Test
+	void test2() {
+		member.setName("관리자");
+		System.out.println("데이터 : "+member.getName());
+		assertEquals(data2, member.getName());
+		fail("VOTest2 실패");
 	}
 
-	@Test
-	void VOtest2() {
-		member.setU_id("admin");
-		System.out.println("데이터: "+member.getU_id());
-		assertEquals("data2", member.getU_id());
-		fail("VOTest2 False");
-	}
 }

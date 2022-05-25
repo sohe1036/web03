@@ -1,0 +1,3 @@
+@charset "UTF-8";
+.navbar-link:not(.is-arrowless)::after { display:none; }
+.table_warp { width: 800px; margin: 0 auto;}

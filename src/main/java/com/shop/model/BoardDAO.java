@@ -84,7 +84,7 @@ public class BoardDAO {
 		}
 		return board;
 	}
-		public ArrayList<BoardVO> getConditionSerach(String condition, String keyword) { //반환자, 메소드(매개변수 condition=선택요건 ,keyword=검색할 단어)
+		public ArrayList<BoardVO> getConditionSearch(String condition, String keyword) { //반환자, 메소드(매개변수 condition=선택요건 ,keyword=검색할 단어)
 			ArrayList<BoardVO> list = null;
 			try {
 				conn = JDBCConnection.getConnection();
@@ -129,7 +129,7 @@ public class BoardDAO {
 		}
 	
 
-		public int addBoard(BoardVO vo) {
+		public int addBoard(BoardVO vo) {		//글추가
 			try {
 				conn = JDBCConnection.getConnection();
 				sql = "insert into board values((select nvl(max(seq), 0)+1 from board), ?, ?, ?, sysdate, 0)";
@@ -153,7 +153,7 @@ public class BoardDAO {
 			return cnt;
 		}
 		
-		public int editBoard(BoardVO vo) {
+		public int editBoard(BoardVO vo) {		//게시글 수정
 			try {
 				conn = JDBCConnection.getConnection();
 				sql = "update board set title=?, content=?, regdate=sysdate where seq=?";
@@ -177,7 +177,7 @@ public class BoardDAO {
 			return cnt;
 		}
 			
-		public int delBoard(int num) {			//삭제는 VO객체안만들어도되니까 num만받아
+		public int delBoard(int num) {			//삭제는 VO객체안만들어도되니까 num만받아서사용
 			try {
 				conn = JDBCConnection.getConnection();
 				sql = "delete from board where seq=?";

@@ -9,8 +9,10 @@ public class MemberVO {
 	private String name;
 	private String tell;
 	private String email;
-	private Date birth;
-	private String addr;
+	private String birth;
+	private String postcode;
+	private String addr1;
+	private String addr2;
 	private Date regdate;
 	private int point;
 	private int visited;
@@ -44,17 +46,29 @@ public class MemberVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getBirth() {
+	public String getBirth() {
 		return birth;
 	}
-	public void setBirth(Date birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
-	public String getAddr() {
-		return addr;
+	public String getPostcode() {
+		return postcode;
 	}
-	public void setAddr(String addr) {
-		this.addr = addr;
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
+	}
+	public String getAddr1() {
+		return addr1;
+	}
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
+	}
+	public String getAddr2() {
+		return addr2;
+	}
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
 	}
 	public Date getRegdate() {
 		return regdate;
@@ -74,7 +88,5 @@ public class MemberVO {
 	public void setVisited(int visited) {
 		this.visited = visited;
 	}
-	
-	
-	
+		
 }

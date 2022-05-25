@@ -8,11 +8,11 @@
 		sid =  (String)session.getAttribute("sid");		//세션에서 sid 값 받아와
 	}
 %>
-<header id="header" class="panel-heading">
+<header id="header" >
 	<div class="hd_wrap">
 		<nav class="navbar" role="navigation" aria-label="main navigation">
 		  <div class="navbar-brand">
-		    <a class="navbar-item" href="index.jsp">
+		    <a class="navbar-item" href="${path }index.jsp">
 		      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
 		    </a>
 		
@@ -22,13 +22,13 @@
 		      <span aria-hidden="true"></span>
 		    </a>
 		  </div>
-		  <div id="navbarBasicExample" class="navbar-menu">
+		  <div id="gnb" class="navbar-menu">
 		    <div class="navbar-start">
 		      <div class="navbar-item has-dropdown is-hoverable">
 		        <a class="navbar-link">
 		          쇼핑몰
 		        </a>
-		
+
 		        <div class="navbar-dropdown">
 		          <a class="navbar-item">
 		            쇼핑몰 소개
@@ -38,10 +38,6 @@
 		          </a>
 		          <a class="navbar-item">
 		            쇼핑몰 알아보기
-		          </a>
-		          <hr class="navbar-divider">
-		          <a class="navbar-item">
-		            쇼핑몰 찾아가기
 		          </a>
 		        </div>
 		      </div>
@@ -59,10 +55,6 @@
 		          <a class="navbar-item">
 		            제품3
 		          </a>
-		          <hr class="navbar-divider">
-		          <a class="navbar-item">
-		            제품4
-		          </a>
 		        </div>
 		      </div>
 		      <div class="navbar-item has-dropdown is-hoverable">
@@ -71,7 +63,7 @@
 		        </a>
 		
 		        <div class="navbar-dropdown">
-		          <a class="navbar-item"  href="GetBoardListCtrl">
+		          <a class="navbar-item"  href="${path }/GetBoardListCtrl">
 		            공지사항
 		          </a>
 		          <a class="navbar-item">
@@ -80,26 +72,54 @@
 		          <a class="navbar-item">
 		            자주하는 질문 및 답변
 		          </a>
-		          <hr class="navbar-divider">
-		          <a class="navbar-item">
-		            반품안내
-		          </a>
 		        </div>
 		      </div>
 		    </div>
-		
+				<c:if test="${empty sid }">		<!-- sid값이 없을때 :회원가입하거나 로그인 가능 -->
 		    <div class="navbar-end">
 		      <div class="navbar-item">
 		        <div class="buttons">
-		          <a class="button is-primary">
-		            <strong>Sign up</strong>
+		          <a class="button is-primary" href="${path }/member/agree.jsp">
+		            <strong>회원가입</strong>
 		          </a>
-		          <a class="button is-light">
+		          <a class="button is-primary" href="${path }/member/login.jsp">
 		            Log in
 		          </a>
 		        </div>
 		      </div>
 		    </div>
+		    	</c:if>
+		    	<c:if test="${!empty sid }">		<!-- sid값이 있을때(로그인 된 상태) -->
+		    <div class="navbar-end">
+		      <div class="navbar-item">
+		        <div class="buttons">
+		          <a href="${path }/MypageCtrl?u_id=${sid }" class="button is-primary">
+		            <strong>my page</strong>
+		          </a>
+		           <a href="${path }/LogOutCtrl" class="button is-primary">
+		            Log out
+		          </a>
+		        </div>
+		      </div>
+		    </div>
+		    	</c:if>
+		    		<c:if test="${sid=='admin' }">		<!-- sid값이 admin일 때 (관리자가 로그인) -->
+		    <div class="navbar-end">
+		      <div class="navbar-item">
+		        <div class="buttons">
+		          <a href="${path }/GetBoardListCtrl" class="button is-primary">
+		            <strong>공지 관리</strong>
+		          </a>
+		          <a href="${path }/GetMemberListCtrl" class="button is-primary">
+		            회원관리
+		          </a>
+		           <a class="button is-primary" >
+		            제품관리
+		          </a>
+		        </div>
+		      </div>
+		    </div>
+		    	</c:if>
 		  </div>
 		</nav>
 	</div>

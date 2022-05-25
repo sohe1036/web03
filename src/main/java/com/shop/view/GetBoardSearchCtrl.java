@@ -27,7 +27,7 @@ public class GetBoardSearchCtrl extends HttpServlet {
 		String keyword = request.getParameter("searchKeyword");			//searchKeyword의 값을 파라미터로 가져와
 		
 		BoardDAO dao = new BoardDAO();
-		ArrayList<BoardVO> list = dao.getConditionSerach(condition, keyword);			//리턴된 list에 DAO의 매개변수값 받아와
+		ArrayList<BoardVO> list = dao.getConditionSearch(condition, keyword);			//리턴된 list에 DAO의 매개변수값 받아와
 		
 		request.setAttribute("list", list);
 		RequestDispatcher view = request.getRequestDispatcher("./board/getBoardList.jsp");
