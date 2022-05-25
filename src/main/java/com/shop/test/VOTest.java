@@ -46,7 +46,6 @@ class VOTest {
 		board.setTitle("타이틀 테스트");
 		System.out.println("데이터 : "+board.getTitle());
 		assertEquals(data1, board.getTitle());
-		fail("VOTest1 실패");
 	}
 	
 	@Test
@@ -54,7 +53,6 @@ class VOTest {
 		member.setName("관리자");
 		System.out.println("데이터 : "+member.getName());
 		assertEquals(data2, member.getName());
-		fail("VOTest2 실패");
 	}
 
 }
