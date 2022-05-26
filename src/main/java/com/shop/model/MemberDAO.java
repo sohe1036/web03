@@ -141,7 +141,7 @@ public class MemberDAO {
 		String upw = Base64.getEncoder().encodeToString(vo.getU_pw().getBytes());		//암호화 byte[]->String
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "update member set u_pw=?, tell=?, email=?, birth=?, postcode=?, addr1=?, addr2=?, where u_id=?";
+			sql = "update member set u_pw=?, tell=?, email=?, birth=?, postcode=?, addr1=?, addr2=? where u_id=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, upw);
 			pstmt.setString(2, vo.getTell());
@@ -261,4 +261,45 @@ public class MemberDAO {
 		
 		return cnt;
 	}
+	public ArrayList<MemberVO> JSONMemberList() {		//반환자, 메서드- 고객목록 -제이손
+		ArrayList<MemberVO> list = new ArrayList<MemberVO>();		//MemberVO를 배열에 담아 
+		
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "select u_id, u_pw, name, tell, email, birth, postcode, addr1, addr2, to_char(regdate, 'yyyy-MM-dd HH24:mi:ss') as cdate, point, visited from member where u_id=?";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				MemberVO vo = new MemberVO();		//vo변수에 rs안의 정보 가져와서 set
+				vo.setU_id(rs.getString("u_id"));
+				vo.setU_pw(rs.getString("u_pw"));
+				vo.setName(rs.getString("name"));
+				vo.setTell(rs.getString("tell"));
+				vo.setEmail(rs.getString("email"));
+				vo.setBirth(rs.getString("birth"));
+				vo.setPostcode(rs.getString("postcode"));
+				vo.setAddr1(rs.getString("addr1"));
+				vo.setAddr2(rs.getString("addr2"));
+				vo.setRegdate(rs.getDate("cdate"));			//as cdate는 알리아스
+				vo.setPoint(rs.getInt("point"));
+				vo.setVisited(rs.getInt("visited"));
+				list.add(vo);		//list에 vo를 더해
+			}
+			
+		}catch(ClassNotFoundException e) {
+			System.out.println("드라이버 로딩 실패");
+			e.printStackTrace();
+		}catch(SQLException e) {
+			System.out.println("SQL 처리 실패");
+			e.printStackTrace();
+		}catch(Exception e) {
+			System.out.println("잘못된 요청입니다.");
+			e.printStackTrace();
+		}finally {
+			JDBCConnection.close(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
 }

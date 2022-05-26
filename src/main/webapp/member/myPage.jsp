@@ -11,44 +11,41 @@
 <title>메인</title>
 <style>
 .navbar-link:not(.is-arrowless)::after { display:none; }
+.table_warp { width: 800px; margin: 0 auto;}
 </style>
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
 <div id="content">
-	<h2 class="title is-3">내 정보</h2>
-	<form action="${path1 }/EditMemberCtrl" method="post">
+	<div class="table_warp">
+		<h2 class="title is-3">내 정보</h2>
 		<table class="table">
 			<tr>
 				<th>아이디</th>
-				<td><input type="text" name="u_id" value="${member.u_id }" readonly></td>
-			</tr>
-			<tr>
-				<th>비밀번호</th>
-				<td><input type="password" name="u_pw" value="${member.u_pw }"></td>
+				<td>${member.u_id }</td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td><input type="text" name="name" value="${member.name }" readonly> </td>
+				<td>${member.name }</td>
 			</tr>
 			<tr>
 				<th>전화번호</th>
-				<td><input type="tel" name="tell" value="${member.tell }"></td>
+				<td>${member.tell }</td>
 			</tr>
 			<tr>
 				<th>이메일</th>
-				<td><input type="email" name="email" value="${member.email }"></td>
+				<td>${member.email }</td>
 			</tr>
 			<tr>
 				<th>생년월일</th>
-				<td><input type="text" name="birth" value="${member.birth }"></td>
+				<td>${member.birth }</td>
 			</tr>
 			<tr>
 				<th>주소</th>
 				<td>
-				<input type="text" name="postcode" value="${member.postcode }">
-				<input type="text" name="addr1" value="${member.addr1 }">
-				<input type="text" name="addr2" value="${member.addr2 }">
+				<p>${member.postcode }</p>
+				<p>${member.addr1 }</p>
+				<p>${member.addr2 }</p>
 				</td>
 			<tr>	
 				<th>가입일</th>
@@ -63,15 +60,10 @@
 				<td>${member.visited }</td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					<input type="submit" value="수정" class="button is-info" />
-					<input type="reset" value="취소" class="button is-info" />
-					<a href="${path1 }/GetMemberListCtrl" class="button is-info">목록</a>
-					<a href="${path1 }/DelMemberCtrl?uid=${member.u_id }" class="button is-danger">회원탈퇴</a>		<!-- 회우너탈퇴시 id정보 넘겨줘야해 -->
-				</td>
+				<td><a href="${path1 }/GetUserCtrl?u_id=${member.u_id }" class="button is-info">정보수정</a></td>
 			</tr>
 		</table>
-	</form>
+	</div>	
 </div>
 <jsp:include page="../footer.jsp"></jsp:include>
 </body>

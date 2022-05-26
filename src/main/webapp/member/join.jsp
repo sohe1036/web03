@@ -63,7 +63,7 @@
 					</tr>
 					<tr>
 						<th>생년월일</th>
-						<td><input type="date" name="birth" id="birth" required></td>
+						<td><input type="text" name="birth" id="birth" required></td>
 					</tr>
 					<tr>
 						<th>주소</th>
