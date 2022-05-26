@@ -47,7 +47,7 @@
 				</tr>
 				<tr>
 					<th>생년월일</th>
-					<td><input type="text" name="birth" value="${member.birth }" required></td>
+					<td><input type="date" name="birth" value="${member.birth }" required></td>
 				</tr>
 				<tr>
 					<th>주소</th>

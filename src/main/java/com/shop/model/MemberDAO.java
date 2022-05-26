@@ -65,7 +65,7 @@ public class MemberDAO {
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "select * from member where u_id=?";
+			sql = "select u_id, u_pw, name, tell, email, to_char(birth,'RRRR-MM-DD')as b, postcode, addr1, addr2, regdate, point, visited from member where u_id=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, uid);
 			rs = pstmt.executeQuery();
@@ -78,7 +78,7 @@ public class MemberDAO {
 				member.setName(rs.getString("name"));
 				member.setTell(rs.getString("tell"));
 				member.setEmail(rs.getString("email"));
-				member.setBirth(rs.getString("birth"));
+				member.setBirth(rs.getString("b"));
 				member.setPostcode(rs.getString("postcode"));
 				member.setAddr1(rs.getString("addr1"));
 				member.setAddr2(rs.getString("addr2"));
