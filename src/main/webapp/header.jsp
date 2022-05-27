@@ -25,35 +25,50 @@
 		  <div id="gnb" class="navbar-menu">
 		    <div class="navbar-start">
 		      <div class="navbar-item has-dropdown is-hoverable">
-		        <a class="navbar-link">
-		          쇼핑몰
+		        <a class="navbar-link" href="${path }/GetGoodsListCtrl">
+		          캐리어
 		        </a>
-
 		        <div class="navbar-dropdown">
 		          <a class="navbar-item">
-		            쇼핑몰 소개
+		            대형캐리어
 		          </a>
 		          <a class="navbar-item">
-		            쇼핑몰 안내
+		            중형캐리어
 		          </a>
 		          <a class="navbar-item">
-		            쇼핑몰 알아보기
+		            소형캐리어
 		          </a>
 		        </div>
 		      </div>
 		      <div class="navbar-item has-dropdown is-hoverable">
 		        <a class="navbar-link">
-		          제품안내
+		          백팩
 		        </a>
 		        <div class="navbar-dropdown">
 		          <a class="navbar-item">
-		            제품1
+		            대형백팩
 		          </a>
 		          <a class="navbar-item">
-		            제품2
+		            중형백팩
 		          </a>
 		          <a class="navbar-item">
-		            제품3
+		            소형백팩
+		          </a>
+		        </div>
+		      </div>
+		      <div class="navbar-item has-dropdown is-hoverable">
+		        <a class="navbar-link">
+		          가방
+		        </a>
+		        <div class="navbar-dropdown">
+		          <a class="navbar-item">
+		            서류가방
+		          </a>
+		          <a class="navbar-item">
+		            크로스백
+		          </a>
+		          <a class="navbar-item">
+		            보스턴백
 		          </a>
 		        </div>
 		      </div>

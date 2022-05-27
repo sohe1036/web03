@@ -94,17 +94,16 @@ public class GoodsDAO {
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "insert into goods values (?,?,?,?,?,?,?,?,?)";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, vo.getGno());			//vo의 정보 받아와서 넣기
-			pstmt.setString(2, vo.getGtype());
-			pstmt.setString(3, vo.getGname());
-			pstmt.setString(4, vo.getGsize());
-			pstmt.setString(5, vo.getGcolor());
-			pstmt.setString(6, vo.getGimg());
-			pstmt.setString(7, vo.getGinfo());
-			pstmt.setString(8, vo.getPrice());
-			pstmt.setInt(9, vo.getPieces());
+			sql = "insert into goods values ((select nvl(max(gno),?,?,?,?,?,?,?,?)";
+			pstmt = conn.prepareStatement(sql);	
+			pstmt.setString(1, vo.getGtype());	
+			pstmt.setString(2, vo.getGname());
+			pstmt.setString(3, vo.getGsize());
+			pstmt.setString(4, vo.getGcolor());
+			pstmt.setString(5, vo.getGimg());
+			pstmt.setString(6, vo.getGinfo());
+			pstmt.setString(7, vo.getPrice());
+			pstmt.setInt(8, vo.getPieces());
 			cnt = pstmt.executeUpdate();
 			
 		}catch(ClassNotFoundException e) {
@@ -149,13 +148,13 @@ public class GoodsDAO {
 		return cnt;
 	}
 	
-	public int delGoods(int num) {		//상품 삭제하기 vo에서 가져올 필요없음
+	public int delGoods(int gno) {		//상품 삭제하기 vo에서 가져올 필요없음
 		
 		try {
 			conn = JDBCConnection.getConnection();
 			sql = "delete from goods where gno=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, num);
+			pstmt.setInt(1, gno);
 			cnt = pstmt.executeUpdate();
 			
 		}catch(ClassNotFoundException e) {

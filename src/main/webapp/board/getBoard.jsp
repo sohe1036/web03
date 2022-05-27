@@ -30,6 +30,9 @@
 						<p>${board.seq }</p>
 						</c:if>
 						<input type="hidden" name="seq" value="${board.seq }">
+						<c:if test="${sid!='admin' }">
+						<p>${board.seq }</p>
+						</c:if>
 						</td>
 					</tr>
 					<tr>	
@@ -37,6 +40,9 @@
 						<td>
 						<c:if test="${sid=='admin' }">
 						<input type="text" name="title" value="${board.title }" required />
+						</c:if>
+						<c:if test="${sid!='admin' }">
+						${board.title }
 						</c:if>
 						</td>
 					</tr>
@@ -46,30 +52,27 @@
 						<c:if test="${sid=='admin' }"> 
 						<textarea cols="90" rows="10" name="content" required>${board.content }</textarea>
 						</c:if>
+						<c:if test="${sid!='admin' }"> 
+						<p>${board.content }</p>
+						</c:if>
 						</td>
 					</tr>
 					<tr>	
 						<th>작성자</th>
 						<td>
-						<c:if test="${sid=='admin' }">
 						<p>${board.name }</p>
-						</c:if>
 						</td>
 					</tr>
 					<tr>	
 						<th>작성일</th>
 						<td>
-						<c:if test="${sid=='admin' }">
 						${board.regdate }
-						</c:if>
 						</td>
 					</tr>
 					<tr>	
 						<th>조회수</th>
 						<td>
-						<c:if test="${sid=='admin' }">
 						${board.show }
-						</c:if>
 						</td>
 					</tr>
 					<tr>	

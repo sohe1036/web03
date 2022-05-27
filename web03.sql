@@ -40,7 +40,7 @@ insert into member values ('admin', 'MTIzNA==', '관리자', '010-1234-5678', 'a
 drop table member;
 delete from member ;
 
-create table Goods ( gno number(20) primary key,       --상품번호
+create table goods ( gno number(20) primary key,       --상품번호
 gtype varchar2(50) not null,        --상품분류
 gname varchar2(100) not null,       --상품이름
 gsize varchar2(50) not null,        --상품사이즈
@@ -50,5 +50,57 @@ ginfo varchar2(2000) not null,      --상품정보
 price varchar2(100) not null,       --상품가격
 pieces number(20) not null);        --상품수량
 
+
+desc goods;
+
+insert into goods values((select nvl(max(gno), 0 )+1 from goods), '캐리어', 'UP TO THE SKY','76CM','TITANIUM','./img/carry1.jpg',
+'제품소재: PC
+용량: 89L
+크기: 76.0 x 52.0 x 29.0cm','199,000원','50');
+insert into goods values((select nvl(max(gno), 0 )+1 from goods), '캐리어', 'UP TO THE SKY','67CM','TITANIUM','./img/carry1.jpg',
+'제품소재: PC
+용량: 60L
+크기: 67.0 x 46.0 x 26.0cm','149,000원','50');
+insert into goods values((select nvl(max(gno), 0 )+1 from goods), '캐리어', 'UP TO THE SKY','55CM','TITANIUM','./img/carry1_1.jpg',
+'제품소재: PC
+용량: 32L
+크기: 55.0 x 40.0 x 20.0cm','179,000원','50');
+insert into goods values((select nvl(max(gno), 0 )+1 from goods), '캐리어', 'CURIO','73CM','BLACK','./img/carry2.jpg',
+'제품소재: PC
+용량: 76L
+크기: 73.0 x 43.0 x 37.0cm
+무게: 4.7kg','339,000원','50');
+insert into goods values((select nvl(max(gno), 0 )+1 from goods), '캐리어', 'CURIO','73CM','CREAM','./img/carry2_1.jpg',
+'제품소재: PC
+용량: 76L
+크기: 73.0 x 43.0 x 37.0cm
+무게: 4.7kg', '339,000원','50');
+insert into goods values((select nvl(max(gno), 0 )+1 from goods), '캐리어', 'HOUSTON CITY','75CM','BLACK','./img/carry3.jpg',
+'제품소재: HS ABS (VACUUM)
+용량: 91L
+크기: 75.0 x 52.0 x 31.0cm
+무게: 4.4kg','188,000원','50');
+insert into goods values((select nvl(max(gno), 0 )+1 from goods), '캐리어', 'HYGGE','79CM','BROWN','./img/carry4.jpg',
+'제품소재: PC
+크기: 79.0 x 52.0 x 33.0cm
+확장형: 37.0cm
+무게: 4.6kg','209,000원','50');
+insert into goods values((select nvl(max(gno), 0 )+1 from goods), '캐리어', 'HYGGE','69CM','BROWN','./img/carry4_1.jpg',
+'제품소재: PC
+크기: 69.0 x 47.0 x 28.0cm
+확장형: 32.0cm
+무게: 3.8kg','189,000원','50');
+
+select * from goods;
+
+
+create table basket (bno number(20) primary key,       --장바구니 번호
+bname varchar2(100) not null,       --장바구니 상품명
+bsize varchar2(50) not null,        --장바구니 상품사이즈
+bcolor varchar2(50) not null,       --장바구니 상품컬러
+bimg varchar2(300),                 --장바구니 상품이미지
+price varchar2(100) not null,       --장바구니 상품가격
+pieces number(20) not null,         --장바구니 상품수량
+u_id varchar2(300) not null);       --장바구니 구매자아이디
 
 commit;
