@@ -11,6 +11,7 @@
 <title>상품리스트</title>
 <style>
 .navbar-link:not(.is-arrowless)::after { display:none; }
+.table_warp { width: 1260px; margin: 0 auto;}
 </style>
 </head>
 <body>
@@ -29,6 +30,7 @@
 					<th>이미지</th>
 				</tr>
 			</thead>
+			<tbody>
 				<c:forEach items="${list }" var="goods" varStatus="status">			<!-- 배열을 다시 순서대로 풀어줘 -->
 				<tr>
 					<td>${goods.gno }</td>			<!-- goods에 정보담아서 배열에 넣었으니까 변수 goods로 -->
@@ -36,10 +38,16 @@
 					<td>${goods.gsize }</td>
 					<td>${goods.gcolor }</td>
 					<td>${goods.price }</td>
-					<td><a href="${path1 }/GetGoodsctrl?gno=${goods.gno }" ><img src=${path1 }${goods.gimg }></a></td>
+					<td><a href="${path1 }/GetGoodsCtrl?gno=${goods.gno }" ><img src=${path1 }/${goods.gimg }></a></td>
 				</tr>
-				</c:forEach>	
-			<tbody>
+				</c:forEach>
+				<tr>
+				<c:if test="${sid=='admin' }">
+					<td colspan="2">
+						<a href="./goods/addGoodsForm.jsp" class="button is-info">추가</a>
+					</td>
+				</c:if>
+				</tr>	
 			</tbody>	
 		</table>
 	</div>

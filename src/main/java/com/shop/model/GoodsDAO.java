@@ -22,7 +22,7 @@ public class GoodsDAO {
 		
 		try {
 			conn = JDBCConnection.getConnection();		//getConnection() 메서드 호출
-			sql = "select * from goods";				//DB에서 상품리스트 select 
+			sql = "select * from goods order by gno";				//DB에서 상품리스트 select 
 			pstmt = conn.prepareStatement(sql);			
 			rs = pstmt.executeQuery();
 			
@@ -68,7 +68,7 @@ public class GoodsDAO {
 			if(rs.next()) {		//rs에 데이터있다면 goods에 데이터 넣어줘
 				goods.setGno(rs.getInt("gno")); 	//rs에서 데이터 받아서 goods에 입력
 				goods.setGtype(rs.getString("gtype"));
-				goods.setGname(rs.getString("name"));
+				goods.setGname(rs.getString("gname"));
 				goods.setGsize(rs.getString("gsize"));
 				goods.setGcolor(rs.getString("gcolor"));
 				goods.setGinfo(rs.getString("ginfo"));
@@ -94,7 +94,7 @@ public class GoodsDAO {
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "insert into goods values ((select nvl(max(gno),?,?,?,?,?,?,?,?)";
+			sql = "insert into goods values ((select nvl(max(gno), 0 )+1 from goods) ,?,?,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);	
 			pstmt.setString(1, vo.getGtype());	
 			pstmt.setString(2, vo.getGname());

@@ -50,8 +50,8 @@ ginfo varchar2(2000) not null,      --상품정보
 price varchar2(100) not null,       --상품가격
 pieces number(20) not null);        --상품수량
 
-
 desc goods;
+select * from goods;
 
 insert into goods values((select nvl(max(gno), 0 )+1 from goods), '캐리어', 'UP TO THE SKY','76CM','TITANIUM','./img/carry1.jpg',
 '제품소재: PC
@@ -92,7 +92,7 @@ insert into goods values((select nvl(max(gno), 0 )+1 from goods), '캐리어', '
 무게: 3.8kg','189,000원','50');
 
 select * from goods;
-
+select * from goods order by gno;
 
 create table basket (bno number(20) primary key,       --장바구니 번호
 bname varchar2(100) not null,       --장바구니 상품명
