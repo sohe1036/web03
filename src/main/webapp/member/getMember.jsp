@@ -19,7 +19,7 @@
 <div id="content">
 	<div class="form_warp">
 		<h2 class="title is-3">메인 페이지</h2>
-		<form action="${path1 }/UpdateMemberCtrl" method="post">
+		<form action="${path1 }/UpdateMemberCtrl" method="post" name="edit_form" >
 			<table class="table">
 				<tbody>
 					<tr>
@@ -44,9 +44,10 @@
 					</tr>
 					<tr>
 						<th>주소</th>
-						<td><input type="text" name="postcode" id="postcode" value="${member.postcode }" /></td>
-						<td><input type="text" name="addr1" id="addr1" value="${member.addr1 }" required /></td>
-						<td><input type="text" name="addr2" id="addr2" value="${member.addr1 }" required /></td>					
+						<td><input type="text" name="postcode" id="postcode" value="${member.postcode }" />
+						<input type="text" name="addr1" id="addr1" value="${member.addr1 }" required />
+						<input type="text" name="addr2" id="addr2" value="${member.addr1 }" required />	
+						<input type="button" value="주소찾기" onclick="findAddr()" class="button is-info"></td>				
 					</tr>
 					<tr>
 						<th>가입일</th>
@@ -70,6 +71,24 @@
 				</tbody>
 			</table>
 		</form>
+		<script>
+		function findAddr(){			//주소찾기
+			new daum.Postcode({
+				oncomplete: function(data) {
+					console.log(data);
+					var roadAddr = data.roadAddress;			//도로명
+					var jibunAddr = data.jibunAddress;		//지번
+					document.getElementById("postcode").value = data.zonecode;
+					if(roadAddr !== '') {
+						document.getElementById("addr1").value = roadAddr;				
+					} else if(jibunAddr !== ''){
+						document.getElementById("addr1").value = jibunAddr;
+					}
+				}
+			}).open();
+		}
+	</script>
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	</div>
 </div>
 <jsp:include page="../footer.jsp"></jsp:include>

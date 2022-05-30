@@ -123,7 +123,7 @@ public class GoodsDAO {
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "update goods set gtype=?, gname=?, gsize=?, gcolor=?, gimg=?, ginfo=?, price=?, piieces=? where gno=?";
+			sql = "update goods set gtype=?, gname=?, gsize=?, gcolor=?, gimg=?, ginfo=?, price=?, pieces=? where gno=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getGtype());
 			pstmt.setString(2, vo.getGname());
@@ -133,6 +133,7 @@ public class GoodsDAO {
 			pstmt.setString(6, vo.getGinfo());
 			pstmt.setString(7, vo.getPrice());
 			pstmt.setInt(8, vo.getPieces());
+			pstmt.setInt(9, vo.getGno());
 			cnt = pstmt.executeUpdate();
 			
 		}catch(ClassNotFoundException e) {

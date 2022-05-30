@@ -237,13 +237,13 @@ public class MemberDAO {
 		return cnt;
 	}
 	
-	public int delMember(String uid) {		//탈퇴
+	public int delMember(String u_id) {		//탈퇴
 		
 		try {
 			conn = JDBCConnection.getConnection();
 			sql = "delete from member where u_id=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "u_id");
+			pstmt.setString(1, u_id);
 			cnt = pstmt.executeUpdate();
 			
 		}catch(ClassNotFoundException e) {

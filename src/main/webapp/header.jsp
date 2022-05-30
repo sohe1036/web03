@@ -12,7 +12,7 @@
 	<div class="hd_wrap">
 		<nav class="navbar" role="navigation" aria-label="main navigation">
 		  <div class="navbar-brand">
-		    <a class="navbar-item" href="${path }index.jsp">
+		    <a class="navbar-item" href="${path }/index.jsp">
 		      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
 		    </a>
 		
@@ -29,7 +29,7 @@
 		          캐리어
 		        </a>
 		        <div class="navbar-dropdown">
-		          <a class="navbar-item">
+		          <a class="navbar-item" >
 		            대형캐리어
 		          </a>
 		          <a class="navbar-item">
@@ -81,9 +81,11 @@
 		          <a class="navbar-item"  href="${path }/GetBoardListCtrl">
 		            공지사항
 		          </a>
+		          <c:if test="${!empty sid }">	
 		          <a class="navbar-item">
 		            1:1 문의
 		          </a>
+		          </c:if>
 		          <a class="navbar-item">
 		            자주하는 질문 및 답변
 		          </a>
@@ -128,9 +130,12 @@
 		          <a href="${path }/GetMemberListCtrl" class="button is-primary">
 		            회원관리
 		          </a>
-		           <a class="button is-primary" >
+		          <a href="${path }/GetGoodsListCtrl" class="button is-primary" >
 		            제품관리
 		          </a>
+		          <a href="${path }/AccessListCtrl" class="button is-primary">
+		            접속자관리
+		          </a>    
 		        </div>
 		      </div>
 		    </div>

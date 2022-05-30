@@ -48,12 +48,20 @@
 				<th>상세정보</th>
 				<td>${goods.ginfo }</td>
 			</tr>
+			<c:if test="${sid=='admin' }">
+			<tr>
+				<th>재고수량</th>
+				<td>${goods.pieces }</td>
+			</tr>
+			</c:if>
 			<tr>
 				<td colspan="2">
 				<a href="${path1 }/AddBasketCtrl" class="button is-info">장바구니</a>
 				<a href="${path1 }/GetGoodsListCtrl" class="button is-info">목록</a>
-				<a href="" class="button is-info">수정</a>
-				<a href="">삭제</a>
+				<c:if test="${sid=='admin' }">
+				<a href="${path1 }/GetGoodsUpdateCtrl?gno=${goods.gno }" class="button is-info">수정</a>
+				<a href="${path1 }/DelGoodsCtrl?gno=${goods.gno }" class="button is-danger">삭제</a>
+				</c:if>
 				</td>
 			</tr>
 		</table>	

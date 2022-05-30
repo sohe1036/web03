@@ -74,7 +74,7 @@
 						<input type="submit" value="수정" class="button is-info" />
 						<input type="reset" value="취소" class="button is-info" />
 						<a href="${path1 }/GetMemberListCtrl" class="button is-info">목록</a>
-						<a href="${path1 }/DelMemberCtrl?uid=${member.u_id }" class="button is-danger">회원탈퇴</a>		<!-- 회우너탈퇴시 id정보 넘겨줘야해 -->
+						<a href="${path1 }/DelMemberCtrl?u_id=${member.u_id }" class="button is-danger">회원탈퇴</a>		<!-- 회원탈퇴시 id정보 넘겨줘야해 -->
 					</td>
 				</tr>
 			</table>

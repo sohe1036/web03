@@ -103,4 +103,22 @@ price varchar2(100) not null,       --장바구니 상품가격
 pieces number(20) not null,         --장바구니 상품수량
 u_id varchar2(300) not null);       --장바구니 구매자아이디
 
+CREATE TABLE db_access (
+  no number primary key,
+  request_uri varchar(100),
+  query_string varchar(200),
+  remote_address varchar(30),
+  server_name varchar(60),
+  server_port varchar(10),
+  locale varchar(20),
+  browser varchar(200),
+  referer varchar(255),
+  session_id varchar(80),
+  user_id varchar(20),
+  response_time number,
+  reg_date date default sysdate
+);
+
+select * from db_access;
+
 commit;

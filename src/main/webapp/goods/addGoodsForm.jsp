@@ -18,7 +18,7 @@
 <div id="content">
 	<div class="table_warp">
 		<h2 class="title is-3">상품 추가 폼</h2>
-		<form action="${path1 }/AddGoodsCtrl" method="post">
+		<form action="${path1 }/AddGoodsCtrl" method="post" enctype="multipart/form-data" ><!-- enctype="multipart/form-data"-->
 			<table class="table">
 				<tr>
 					<th>상품명</th>
@@ -50,7 +50,7 @@
 				</tr>
 				<tr>
 					<th>재고량</th>
-					<td><input type="number" name="pieces" ></td>
+					<td><input type="number" name="pieces" id="pieces" ></td>
 				</tr>
 				<tr>
 					<td colspan="2">
