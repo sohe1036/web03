@@ -19,7 +19,7 @@
 <div id="content">
 	<div class="table_warp">
 	<h2 class="title is-3">상품 상세페이지</h2>
-		<form action="${path1 }/EditGoodsCtrl" method="post">
+		<form action="${path1 }/EditGoodsCtrl" method="post" enctype="multipart/form-data">
 			<table class="table">
 				<tr>
 					<th>상품번호</th>
@@ -31,7 +31,10 @@
 				</tr>
 				<tr>
 					<th>이미지</th>
-					<td><input type="file" accept="image/png, image/jpeg, image/gif" name="gimg" id="gimg" value="${path1 }/${goods.gimg }"/></td>
+					<td>
+					<img src="${path1 }/${goods.gimg }">
+					<input type="file" accept="image/png, image/jpeg, image/gif" name="gimg" id="gimg" value="${path1 }/${goods.gimg }"/>
+					</td>
 				</tr>
 				<tr>
 					<th>상품타입</th>

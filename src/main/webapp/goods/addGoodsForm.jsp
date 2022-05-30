@@ -26,7 +26,7 @@
 				</tr>
 				<tr>
 					<th>이미지</th>
-					<td><input type="file" accept="image/png, image/jpeg, image/gif" name="gimg" id="gimg" ></td>
+					<td><input type="file" accept="image/png, image/jpeg, image/gif" name="gimg" id="gimg"></td>
 				</tr>
 				<tr>
 					<th>상품타입</th>
