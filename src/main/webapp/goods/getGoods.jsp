@@ -56,7 +56,9 @@
 			</c:if>
 			<tr>
 				<td colspan="2">
-				<a href="${path1 }/AddBasketCtrl" class="button is-info">장바구니</a>
+				<c:if test="${sid!=null }">
+				<a href="${path1 }/AddBasketCtrl?gno=${goods.gno }&gname=${goods.gname }&gsize=${goods.gsize }&gcolor=${goods.gcolor }&price=${goods.price }" class="button is-info">장바구니</a>
+				</c:if>
 				<a href="${path1 }/GetGoodsListCtrl" class="button is-info">목록</a>
 				<c:if test="${sid=='admin' }">
 				<a href="${path1 }/GetGoodsUpdateCtrl?gno=${goods.gno }" class="button is-info">수정</a>

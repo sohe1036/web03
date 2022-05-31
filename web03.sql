@@ -95,13 +95,37 @@ select * from goods;
 select * from goods order by gno;
 
 create table basket (bno number(20) primary key,       --장바구니 번호
-bname varchar2(100) not null,       --장바구니 상품명
-bsize varchar2(50) not null,        --장바구니 상품사이즈
-bcolor varchar2(50) not null,       --장바구니 상품컬러
-bimg varchar2(300),                 --장바구니 상품이미지
-price varchar2(100) not null,       --장바구니 상품가격
-pieces number(20) not null,         --장바구니 상품수량
-u_id varchar2(300) not null);       --장바구니 구매자아이디
+gname varchar2(100) ,       --장바구니 상품명
+gno number(20) ,            --상품번호
+gsize varchar2(50),        --상품사이즈
+gcolor varchar2(50) ,       --상품컬러
+price varchar2(100) ,       --상품가격
+pieces number(20) ,         --상품수량
+u_id varchar2(300) );       --구매자아이디
+
+select * from basket;
+drop table basket;
+
+create table payment(ono number primary key, -- 결제번호
+    paytype varchar2(20),   -- 결제방식
+    payno varchar2(30),     -- 결제카드번호
+    money number,           -- 결제금액
+    sdate date,             -- 결제일
+    gno number,             -- 상품코드
+    amount number,          -- 수량
+    userid varchar2(20),    -- 사용자아이디
+	rname varchar2(30),     -- 수신자명
+    tel varchar2(20),       -- 수신자전화번호
+    addr1 varchar2(200),    -- 수신자 기본주소
+    addr2 varchar2(100),    -- 수신자 상세주소
+    postcode varchar2(10),  -- 수신자 우편번호
+    transno varchar2(50),   -- 배송코드
+    transco varchar2(50),   -- 배송회사
+    rstatus varchar2(20),   -- 수신상태
+    rdate date,             -- 도착일
+	memo varchar2(100)     -- 메모
+);
+
 
 CREATE TABLE db_access (
   no number primary key,

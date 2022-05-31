@@ -1,7 +1,6 @@
 package com.shop.common;
 
-public class BasketVO {
-	
+public class BesketDetailVO {
 	private int bno;
 	private String gname;
 	private String gsize;
@@ -10,6 +9,9 @@ public class BasketVO {
 	private String price;
 	private int pieces;
 	private String u_id;
+	private String gtype;
+	private String gimg;
+	private String ginfo;
 	public int getBno() {
 		return bno;
 	}
@@ -58,6 +60,25 @@ public class BasketVO {
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
 	}
+	public String getGtype() {
+		return gtype;
+	}
+	public void setGtype(String gtype) {
+		this.gtype = gtype;
+	}
+	public String getGimg() {
+		return gimg;
+	}
+	public void setGimg(String gimg) {
+		this.gimg = gimg;
+	}
+	public String getGinfo() {
+		return ginfo;
+	}
+	public void setGinfo(String ginfo) {
+		this.ginfo = ginfo;
+	}
 	
-		
+	
+
 }

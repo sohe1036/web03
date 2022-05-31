@@ -28,7 +28,7 @@ public class LoginCtrl extends HttpServlet {
 		String u_pw = request.getParameter("u_pw");
 		
 		MemberDAO dao = new MemberDAO();		//DAO 연결
-		MemberVO vo = new MemberVO();		//MemㅠerVO 연결
+		MemberVO vo = new MemberVO();		//MemberVO 연결
 		vo.setU_id(u_id);
 		vo.setU_pw(u_pw);			//입력된 값 vo에 set
 		int cnt = dao.login(vo);	//리턴되는 cnt에 메서드(매개변수) 입력
@@ -36,8 +36,8 @@ public class LoginCtrl extends HttpServlet {
 		HttpSession session = request.getSession();		//입력한 값을 세션에 넣기
 		
 		if(cnt>0) {
-			session.setAttribute("sid", u_id);
-			session.setAttribute("name", vo.getName());
+			session.setAttribute("sid", u_id);			//u_id를 세션에 sid로 저장
+			session.setAttribute("name", vo.getName());		//vo에서 name 가져와 세션에 넣기
 			response.sendRedirect("index.jsp");
 		}else {
 			response.sendRedirect("./member/login.jsp");

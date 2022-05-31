@@ -6,9 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
-
 import com.shop.common.BasketVO;
+import com.shop.common.BesketDetailVO;
 import com.shop.common.JDBCConnection;
 
 public class BasketDAO {
@@ -29,14 +28,14 @@ public class BasketDAO {
 			pstmt.setString(1, u_id);
 			rs = pstmt.executeQuery();			//select문
 			
-			BasketVO vo = new BasketVO();		//VO 객체생성
-			
 			while (rs.next()) {		//반복문으로 rs의 데이터를 호출해 vo에 담은 후  배열에 더할 것
+				BasketVO vo = new BasketVO();		//VO 객체생성
+				
 				vo.setBno(rs.getInt("bno"));
-				vo.setBname(rs.getString("bname"));
-				vo.setBsize(rs.getString("bsize"));
-				vo.setBcolor(rs.getString("bcolor"));
-				vo.setBimg(rs.getString("bimg"));
+				vo.setGname(rs.getString("gname"));
+				vo.setGsize(rs.getString("gsize"));
+				vo.setGcolor(rs.getString("gcolor"));
+				vo.setGno(rs.getInt("gno"));
 				vo.setPrice(rs.getString("price"));
 				vo.setPieces(rs.getInt("pieces"));
 				vo.setU_id(rs.getString("u_id"));
@@ -56,26 +55,28 @@ public class BasketDAO {
 		return list;
 	}
 
-	public BasketVO getBasket(int bno) {		//장바구니 상세목록 ->장바구니 번호를 받아와 열기(매개변수 bno),VO의 정보 받아서 리턴할것
+	public BesketDetailVO getBasket(int bno) {		//장바구니 상세목록 ->장바구니 번호를 받아와 열기(매개변수 bno),VO의 정보 받아서 리턴할것
 		
-		BasketVO basket = new BasketVO();			//VO객체 생성해서 정보 입력해줄 것
+		BesketDetailVO basket = new BesketDetailVO();			//VO객체 생성해서 정보 입력해줄 것
 		try {
 			conn = JDBCConnection.getConnection();		//메서드 호출
-			sql = "select * from where bno=?";			//조건:bno 
+			sql = "select a.bno, a.gname, a.gsize, a.gcolor, a.gno, a.price, a.pieces, a.u_id, b.gtype, b.gimg, b.ginfo from basket a inner join goods b on a.gno=b.gno where bno=?";			//조건:bno ,이너조인,알리어스 사용
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bno);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {				//rs값이 있다면 파라미터로 값 받아와서 basket에 정보입력
 			basket.setBno(rs.getInt("bno"));	//rs에서 bno값 받아와서 basket에 입력
-			basket.setBname(rs.getString("bname"));
-			basket.setBsize(rs.getString("bsize"));
-			basket.setBcolor(rs.getString("bcolor"));
-			basket.setBimg(rs.getString("bimg"));
+			basket.setGname(rs.getString("gname"));
+			basket.setGsize(rs.getString("gsize"));
+			basket.setGcolor(rs.getString("gcolor"));
+			basket.setGno(rs.getInt("gno"));
 			basket.setPrice(rs.getString("price"));
 			basket.setPieces(rs.getInt("pieces"));
-			basket.setU_id(rs.getString("u_id"));			
-			
+			basket.setU_id(rs.getString("u_id"));
+			basket.setGtype(rs.getString("gtype"));
+			basket.setGimg(rs.getString("gimg"));
+			basket.setGinfo(rs.getString("ginfo"));
 			}
 			
 		}catch(ClassNotFoundException e) {
@@ -94,11 +95,11 @@ public class BasketDAO {
 	public int editBasket(BasketVO vo) {		//장바구니 수정하기 -> vo 값 받아와서 수정할것 (매개변수 vo)
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "update basket get bsize=?, bcolor=?, pieces=? where bno=?";			//조건:bno
+			sql = "update basket get pieces=? gsize=?, gcolor=? where bno=?";			//조건:bno
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getBsize());		//vo에서 bsize 값 받아와서 수정
-			pstmt.setString(2, vo.getBcolor());
-			pstmt.setInt(3, vo.getPieces());
+			pstmt.setInt(1, vo.getPieces());
+			pstmt.setString(2, vo.getGsize());		//vo에서 gsize 값 받아와서 수정
+			pstmt.setString(3, vo.getGcolor());
 			pstmt.setInt(4, vo.getBno());
 			cnt = pstmt.executeUpdate();
 			
@@ -141,14 +142,16 @@ public class BasketDAO {
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "insert into basket valuse((select nvl(max(bno), 0)+1 from basket), ?,?,?,?,?,?,?)";
-			pstmt.setString(1, vo.getBname());		//vo에서 bname값 가져와서 insert
-			pstmt.setString(2, vo.getBsize());
-			pstmt.setString(3, vo.getBcolor());
-			pstmt.setString(4, vo.getBimg());
+			sql = "insert into basket values((select nvl(max(bno), 0)+1 from basket),?,?,?,?,?,?,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getGname());
+			pstmt.setInt(2, vo.getGno());
+			pstmt.setString(3, vo.getGsize());
+			pstmt.setString(4, vo.getGcolor());
 			pstmt.setString(5, vo.getPrice());
 			pstmt.setInt(6, vo.getPieces());
 			pstmt.setString(7, vo.getU_id());
+			cnt = pstmt.executeUpdate();
 			
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();

@@ -100,7 +100,7 @@
 		            <strong>회원가입</strong>
 		          </a>
 		          <a class="button is-primary" href="${path }/member/login.jsp">
-		            Log in
+		            로그인
 		          </a>
 		        </div>
 		      </div>
@@ -111,10 +111,13 @@
 		      <div class="navbar-item">
 		        <div class="buttons">
 		          <a href="${path }/MypageCtrl?u_id=${sid }" class="button is-primary">
-		            <strong>my page</strong>
+		            <strong>마이페이지</strong>
+		          </a>
+		            <a href="${path }/GetBasketListCtrl?u_id=${sid }" class="button is-primary">
+		            <strong>장바구니</strong>
 		          </a>
 		           <a href="${path }/LogOutCtrl" class="button is-primary">
-		            Log out
+		            로그아웃
 		          </a>
 		        </div>
 		      </div>
