@@ -123,17 +123,30 @@ public class GoodsDAO {
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "update goods set gtype=?, gname=?, gsize=?, gcolor=?, gimg=?, ginfo=?, price=?, pieces=? where gno=?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getGtype());
-			pstmt.setString(2, vo.getGname());
-			pstmt.setString(3, vo.getGsize());
-			pstmt.setString(4, vo.getGcolor());
-			pstmt.setString(5, vo.getGimg());
-			pstmt.setString(6, vo.getGinfo());
-			pstmt.setString(7, vo.getPrice());
-			pstmt.setInt(8, vo.getPieces());
-			pstmt.setInt(9, vo.getGno());
+			if(vo.getGimg()!=null) {		//이미지 수정할 값이 있으면
+				sql = "update goods set gtype=?, gname=?, gsize=?, gcolor=?, gimg=?, ginfo=?, price=?, pieces=? where gno=?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, vo.getGtype());
+				pstmt.setString(2, vo.getGname());
+				pstmt.setString(3, vo.getGsize());
+				pstmt.setString(4, vo.getGcolor());
+				pstmt.setString(5, vo.getGimg());
+				pstmt.setString(6, vo.getGinfo());
+				pstmt.setString(7, vo.getPrice());
+				pstmt.setInt(8, vo.getPieces());
+				pstmt.setInt(9, vo.getGno());
+			} else {		//이미지 수정할 값이 없으면
+				sql = "update goods set gtype=?, gname=?, gsize=?, gcolor=?, ginfo=?, price=?, pieces=? where gno=?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, vo.getGtype());
+				pstmt.setString(2, vo.getGname());
+				pstmt.setString(3, vo.getGsize());
+				pstmt.setString(4, vo.getGcolor());
+				pstmt.setString(5, vo.getGinfo());
+				pstmt.setString(6, vo.getPrice());
+				pstmt.setInt(7, vo.getPieces());
+				pstmt.setInt(8, vo.getGno());
+			}
 			cnt = pstmt.executeUpdate();
 			
 		}catch(ClassNotFoundException e) {
