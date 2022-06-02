@@ -95,14 +95,16 @@ public class GoodsDAO {
 		return list;
 	}
 	
-	public ArrayList<GoodsVO> getGoodsList(String gtype, String gsize) {			//상품 gtype,gsize를 매개변수로 리스트보기
+	public ArrayList<GoodsVO> getGoodsList(String gsize, String gsize2, String gsize3) {			//상품 gtype,gsize를 매개변수로 리스트보기
 		ArrayList<GoodsVO> list = new ArrayList<GoodsVO>();		
 		
 		try {
 			conn = JDBCConnection.getConnection();		//getConnection() 메서드 호출
-			sql = "select * from goods where gsize=? order by gno";				//DB에서 상품리스트 select 
+			sql = "select * from goods where gsize=? or gsize=? or gsize=? ";				//DB에서 상품리스트 select 
 			pstmt = conn.prepareStatement(sql);	
 			pstmt.setString(1, gsize);
+			pstmt.setString(2, gsize2);
+			pstmt.setString(3, gsize3);
 			rs = pstmt.executeQuery();
 			
 			

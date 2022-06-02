@@ -29,7 +29,7 @@
 		          캐리어
 		        </a>
 		        <div class="navbar-dropdown">
-		          <a class="navbar-item" href="${path }/GetGoodsListCtrl?gtype=luggage&gsize=76CM">
+		          <a class="navbar-item" href="${path }/GetGoodsListCtrl?gsize=79CM&gsize2=76CM&gsize3=73CM">
 		            대형캐리어
 		          </a>
 		          <a class="navbar-item">
