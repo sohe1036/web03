@@ -55,6 +55,85 @@ public class GoodsDAO {
 		return list;
 	}
 	
+	
+	public ArrayList<GoodsVO> getGoodsList(String gtype) {			//상품 gtype를 매개변수로 리스트보기
+		ArrayList<GoodsVO> list = new ArrayList<GoodsVO>();		
+		
+		try {
+			conn = JDBCConnection.getConnection();		//getConnection() 메서드 호출
+			sql = "select * from goods where gtype=? order by gno";				//DB에서 상품리스트 select 
+			pstmt = conn.prepareStatement(sql);	
+			pstmt.setString(1, gtype);
+			rs = pstmt.executeQuery();
+			
+			
+			while(rs.next()) {				//rs있을 떄
+				GoodsVO goods = new GoodsVO();		//VO연결
+				
+				goods.setGno(rs.getInt("gno"));		//rs에서 gno받아와서 goods에 set
+				goods.setGtype(rs.getString("gtype"));
+				goods.setGname(rs.getString("gname"));
+				goods.setGsize(rs.getString("gsize"));
+				goods.setGcolor(rs.getString("gcolor"));
+				goods.setGinfo(rs.getString("ginfo"));
+				goods.setGimg(rs.getString("gimg"));
+				goods.setPrice(rs.getString("price"));
+				goods.setPieces(rs.getInt("pieces"));
+				list.add(goods);		//값을 담아서 list에 더해
+			}
+			
+	}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCConnection.close(rs, pstmt, conn);
+		}
+		
+		return list;
+	}
+	
+	public ArrayList<GoodsVO> getGoodsList(String gtype, String gsize) {			//상품 gtype,gsize를 매개변수로 리스트보기
+		ArrayList<GoodsVO> list = new ArrayList<GoodsVO>();		
+		
+		try {
+			conn = JDBCConnection.getConnection();		//getConnection() 메서드 호출
+			sql = "select * from goods where gsize=? order by gno";				//DB에서 상품리스트 select 
+			pstmt = conn.prepareStatement(sql);	
+			pstmt.setString(1, gsize);
+			rs = pstmt.executeQuery();
+			
+			
+			while(rs.next()) {				//rs있을 떄
+				GoodsVO goods = new GoodsVO();		//VO연결
+				
+				goods.setGno(rs.getInt("gno"));		//rs에서 gno받아와서 goods에 set
+				goods.setGtype(rs.getString("gtype"));
+				goods.setGname(rs.getString("gname"));
+				goods.setGsize(rs.getString("gsize"));
+				goods.setGcolor(rs.getString("gcolor"));
+				goods.setGinfo(rs.getString("ginfo"));
+				goods.setGimg(rs.getString("gimg"));
+				goods.setPrice(rs.getString("price"));
+				goods.setPieces(rs.getInt("pieces"));
+				list.add(goods);		//값을 담아서 list에 더해
+			}
+			
+	}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCConnection.close(rs, pstmt, conn);
+		}
+		
+		return list;
+	}
+	
 	public GoodsVO getGoods(int gno) {		//상품 상세보기 상품번호로 조회할거라 매개변수는 gno
 		GoodsVO goods = new GoodsVO();		//VO객체생성 
 		

@@ -13,7 +13,7 @@
 		<nav class="navbar" role="navigation" aria-label="main navigation">
 		  <div class="navbar-brand">
 		    <a class="navbar-item" href="${path }/index.jsp">
-		      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+		      <img src="${path }/img/logo.svg" width="112" height="28">
 		    </a>
 		
 		    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -25,11 +25,11 @@
 		  <div id="gnb" class="navbar-menu">
 		    <div class="navbar-start">
 		      <div class="navbar-item has-dropdown is-hoverable">
-		        <a class="navbar-link" href="${path }/GetGoodsListCtrl">
+		        <a class="navbar-link" href="${path }/GetGoodsListCtrl?gtype=luggage">
 		          캐리어
 		        </a>
 		        <div class="navbar-dropdown">
-		          <a class="navbar-item" >
+		          <a class="navbar-item" href="${path }/GetGoodsListCtrl?gtype=luggage&gsize=76CM">
 		            대형캐리어
 		          </a>
 		          <a class="navbar-item">
@@ -41,7 +41,7 @@
 		        </div>
 		      </div>
 		      <div class="navbar-item has-dropdown is-hoverable">
-		        <a class="navbar-link">
+		        <a class="navbar-link" href="${path }/GetGoodsListCtrl?gtype=backpack">
 		          백팩
 		        </a>
 		        <div class="navbar-dropdown">

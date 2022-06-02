@@ -28,7 +28,7 @@ public class EditGoodsCtrl extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		//String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload";		//파일이 업로드 될 경로
-		String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload";
+		String saveFolder = "D:/LIM/jsp1/web03/src/main/webapp/upload";
 		int maxSize = 5 * 1024 * 1024;			//업로드 될 최대 사이즈 용량 5M
 		
 		MultipartRequest multi	= new MultipartRequest(request, saveFolder, maxSize, "UTF-8");

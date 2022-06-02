@@ -38,7 +38,15 @@
 				</tr>
 				<tr>
 					<th>상품타입</th>
-					<td><input type="text" name="gtype" id="gtype" value="${goods.gtype }"></td>
+					<td>
+						<select name="gtype" class="select is-primary" required>
+							<option value="luggage">캐리어</option>
+							<option value="backpack">백팩</option>
+							<option value="bag">가방</option>
+							<option value="accessory">액세서리</option>						
+						</select>
+						<input type="hidden" name="gno" id="gno" value="${goods.gno }">
+					</td>
 				</tr>
 				<tr>
 					<th>가격</th>

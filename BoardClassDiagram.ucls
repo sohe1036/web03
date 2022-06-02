@@ -1,45 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="com.shop.model.BoardDAO" project="web03" 
-    file="/web03/src/main/java/com/shop/model/BoardDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="701" y="275"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="2" language="java" name="com.shop.common.BoardVO" project="web03" 
+  <class id="1" language="java" name="com.shop.common.BoardVO" project="web03" 
     file="/web03/src/main/java/com/shop/common/BoardVO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1055" y="250"/>    
+    <position height="-1" width="-1" x="490" y="332"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="com.shop.controller.AddBoardCtrl" project="web03" 
+  <class id="2" language="java" name="com.shop.model.BoardDAO" project="web03" 
+    file="/web03/src/main/java/com/shop/model/BoardDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="781" y="160"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.shop.view.GetBoardListCtrl" project="web03" 
+    file="/web03/src/main/java/com/shop/view/GetBoardListCtrl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="293" x="57" y="-33"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.shop.view.GetBoardCtrl" project="web03" 
+    file="/web03/src/main/java/com/shop/view/GetBoardCtrl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="292" x="57" y="78"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.shop.controller.AddBoardCtrl" project="web03" 
     file="/web03/src/main/java/com/shop/controller/AddBoardCtrl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="291" x="128" y="75"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="117" width="291" x="57" y="204"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="com.shop.controller.DelBoardCtrl" project="web03" 
-    file="/web03/src/main/java/com/shop/controller/DelBoardCtrl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1000" y="609"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="com.shop.controller.EditBoardCtrl" project="web03" 
+  <class id="6" language="java" name="com.shop.controller.EditBoardCtrl" project="web03" 
     file="/web03/src/main/java/com/shop/controller/EditBoardCtrl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="355" y="554"/>    
+    <position height="-1" width="-1" x="203" y="388"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.shop.controller.DelBoardCtrl" project="web03" 
+    file="/web03/src/main/java/com/shop/controller/DelBoardCtrl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="202" y="514"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      

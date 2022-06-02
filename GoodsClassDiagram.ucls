@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="com.shop.common.GoodsVO" project="web03" 
     file="/web03/src/main/java/com/shop/common/GoodsVO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1145" y="322"/>    
+    <position height="-1" width="-1" x="524" y="426"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,34 +12,52 @@
   </class>  
   <class id="2" language="java" name="com.shop.model.GoodsDAO" project="web03" 
     file="/web03/src/main/java/com/shop/model/GoodsDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="728" y="321"/>    
+    <position height="-1" width="-1" x="766" y="140"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="com.shop.controller.goods.AddGoodsCtrl" project="web03" 
+  <class id="3" language="java" name="com.shop.view.goods.GetGoodsListCtrl" project="web03" 
+    file="/web03/src/main/java/com/shop/view/goods/GetGoodsListCtrl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="223" y="67"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.shop.view.goods.GetGoodsCtrl" project="web03" 
+    file="/web03/src/main/java/com/shop/view/goods/GetGoodsCtrl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="223" y="202"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.shop.controller.goods.AddGoodsCtrl" project="web03" 
     file="/web03/src/main/java/com/shop/controller/goods/AddGoodsCtrl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="288" x="169" y="111"/>    
+    <position height="-1" width="-1" x="223" y="344"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="com.shop.controller.goods.DelGoodsCtrl" project="web03" 
+  <class id="6" language="java" name="com.shop.controller.goods.DelGoodsCtrl" project="web03" 
     file="/web03/src/main/java/com/shop/controller/goods/DelGoodsCtrl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="284" x="865" y="657"/>    
+    <position height="-1" width="-1" x="221" y="614"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="com.shop.controller.goods.EditGoodsCtrl" project="web03" 
+  <class id="7" language="java" name="com.shop.controller.goods.EditGoodsCtrl" project="web03" 
     file="/web03/src/main/java/com/shop/controller/goods/EditGoodsCtrl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="288" x="235" y="584"/>    
+    <position height="-1" width="-1" x="223" y="481"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
