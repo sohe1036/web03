@@ -49,10 +49,35 @@ gimg varchar2(300) ,            --상품이미지
 ginfo varchar2(2000) not null,      --상품정보
 price varchar2(100) not null,       --상품가격
 pieces number(20) not null);        --상품수량
+---------------------
+alter table goods add gsize2 varchar2(50);
+update goods set gsize='대형', gsize2='76CM' where gno=1; 
+update goods set gsize='중형', gsize2='67CM' where gno=2; 
+update goods set gsize='소형', gsize2='55CM' where gno=3; 
+update goods set gsize='대형', gsize2='73CM' where gno=4; 
+update goods set gsize='대형', gsize2='73CM' where gno=5;
+update goods set gsize='대형', gsize2='75CM' where gno=6;
+update goods set gsize='대형', gsize2='79CM' where gno=7;
+update goods set gsize='중형', gsize2='69CM' where gno=8;
+update goods set gsize='대형', gsize2='76CM' where gno=10;
 
+alter table goods drop column price;
+alter table goods add price number(20);
+update goods set price='199000' where gno=1;
+update goods set price='149000' where gno=2;
+update goods set price='179000' where gno=3;
+update goods set price='339000' where gno=4;
+update goods set price='339000' where gno=5;
+update goods set price='188000' where gno=6;
+update goods set price='209000' where gno=7;
+update goods set price='189000' where gno=8;
+update goods set price='99000' where gno=9;
+update goods set price='69000' where gno=10;
+alter table goods modify price number(20) not null;
+--------------------
 desc goods;
 select * from goods;
-
+select * from goods where gtype='luggage' and gsize='대형';
 insert into goods values((select nvl(max(gno), 0 )+1 from goods), '캐리어', 'UP TO THE SKY','76CM','TITANIUM','./img/carry1.jpg',
 '제품소재: PC
 용량: 89L
@@ -94,6 +119,8 @@ insert into goods values((select nvl(max(gno), 0 )+1 from goods), '캐리어', '
 select * from goods;
 select * from goods order by gno;
 
+
+
 create table basket (bno number(20) primary key,       --장바구니 번호
 gname varchar2(100) ,       --장바구니 상품명
 gno number(20) ,            --상품번호
@@ -125,8 +152,9 @@ create table payment(ono number primary key, -- 결제번호
     rdate date,             -- 도착일
 	memo varchar2(100)     -- 메모
 );
-
+select * from payment;
 drop table payment;
+delete from payment;
 
 CREATE TABLE db_access (
   no number primary key,

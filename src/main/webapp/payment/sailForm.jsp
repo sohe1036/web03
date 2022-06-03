@@ -9,7 +9,9 @@
 	}
 %> 	
 <%
-	int bno = Integer.parseInt(request.getParameter("bno"));
+	if(request.getParameter("bno")!=null){
+		int bno = Integer.parseInt(request.getParameter("bno"));
+	}
 %> 
 <!DOCTYPE html>
 <html>
@@ -32,16 +34,20 @@
 			<table class="table">
 				<tbody>
 					<tr>
-						<th>상품번호</th>
-						<td>${goods.gno }</td>
-					</tr>
-					<tr>
 						<th>상품명</th>
-						<td>${goods.gname }</td>
+						<td>
+						<input type="text" name="gname" value="${goods.gname }" readonly>
+						<input type="hidden" name="gno" value="${goods.gno }" >	<!-- 값을 받아와야하나 페이지에 나타낼 필요없으므로 hidden처리 -->
+						<c:if test="${!empty bno }">		<!-- bno값이 공백이 아니면 -->
+						<input type="hidden" name="bno" value="${bno }">		
+						</c:if>
+						</td>
 					</tr>
 					<tr>
 						<th>가격</th>
-						<td>${goods.price }</td>
+						<td>
+						<input type="number" name="price" value="${goods.price }" readonly>
+						</td>
 					</tr>
 					<tr>
 						<th>수량</th>
@@ -79,10 +85,10 @@
 					<tr>
 						<th>결제방식</th>
 						<td>
-							<select name="paytype" id="patype">
-								<option class="credit">신용카드</option>
-								<option class="check">체크카드</option>
-								<option class="deposit">무통장입금</option>
+							<select name="paytype" required>
+								<option value="credit">신용카드</option>
+								<option value="check">체크카드</option>
+								<option value="account">무통장입금</option>
 							</select>
 						</td>
 					</tr>

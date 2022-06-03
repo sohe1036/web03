@@ -28,7 +28,7 @@ li { float: left; padding: 20px;}
 			<p>상품명 : ${basket.gname }</p>
 			<p>사이즈 : ${basket.gsize }</p>
 			<p>컬러 :${basket.gcolor }</p>
-			<p>가격 : ${basket.price }</p>
+			<p>가격 : ${basket.price }원</p>
 			<p>수량 : ${basket.pieces }</p>
 			<br>	
 			<a href="${path1 }/GetBasketCtrl?bno=${basket.bno }" class="button is-info">상세보기</a> &nbsp;&nbsp;

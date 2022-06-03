@@ -24,17 +24,19 @@ public class GetGoodsListCtrl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		
-		String gsize = request.getParameter("gsize");		//타입에 따라 메뉴 불러오려면 타입 데이터를 파라미터로 받아와야함
-		String gsize2 = request.getParameter("gsize2");
-		String gsize3 = request.getParameter("gsize3");
+		String gtype = request.getParameter("gtype");		//타입에 따라 메뉴 불러오려면 타입 데이터를 파라미터로 받아와야함
+		String gsize = request.getParameter("gsize");
+
 		
 		GoodsDAO dao = new GoodsDAO();			//DAO선언
 		ArrayList<GoodsVO> list;
-		if(gsize!=null && gsize2!=null && gsize3!=null){
-			list = dao.getGoodsList(gsize, gsize2, gsize3);
-		}else if(gsize!=null && gsize2!=null) {
-			list = dao.getGoodsList(gsize);		//리턴된 list에 dao메서드호출
+		if(gtype!=null && gsize!=null){
+			list = dao.getGoodsList(gtype, gsize);
+		}else if(gtype!=null) {
+			list = dao.getGoodsList(gtype);		//리턴된 list에 dao메서드호출
 		}else {
 			list = dao.getGoodsList();
 		}

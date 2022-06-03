@@ -24,16 +24,20 @@ public class SailFormCtrl extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		response.setContentType("trxt/html; charset=UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		
 		int gno = Integer.parseInt(request.getParameter("gno"));
-		int bno = Integer.parseInt(request.getParameter("bno"));
+		int bno = 0;
+
+		if(request.getParameter("bno")!=null) {		//메뉴에서 바로구매시
+			bno = Integer.parseInt(request.getParameter("bno"));
+		}
 		
 		PaymentDAO dao = new PaymentDAO();
 		GoodsVO goods = new GoodsVO();
-		/* BasketVO basket = new BasketVO(); */
+		
 		
 		goods = dao.callByPay(gno , bno);
 		if(goods!=null) {

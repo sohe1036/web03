@@ -34,7 +34,7 @@
 			</tr>
 			<tr>
 				<th>가격</th>
-				<td>${goods.price }</td>
+				<td>${goods.price }원</td>
 			</tr>
 			<tr>
 				<th>컬러</th>
@@ -43,6 +43,10 @@
 			<tr>
 				<th>사이즈</th>
 				<td>${goods.gsize }</td>
+			</tr>
+			<tr>
+				<th>상세 사이즈</th>
+				<td>${goods.gsize2 }</td>
 			</tr>
 			<tr>
 				<th>상세정보</th>

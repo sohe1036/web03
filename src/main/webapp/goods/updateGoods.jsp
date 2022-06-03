@@ -50,7 +50,7 @@
 				</tr>
 				<tr>
 					<th>가격</th>
-					<td><input type="text" name="price" id="price" value="${goods.price }"></td>
+					<td><input type="number" name="price" id="price" value="${goods.price }"></td>
 				</tr>
 				<tr>
 					<th>컬러</th>
@@ -58,7 +58,17 @@
 				</tr>
 				<tr>
 					<th>사이즈</th>
-					<td><input type="text" name="gsize" id="gsize" value="${goods.gsize }"></td>
+					<td>
+						<select name="gsize" class="select is-primary" required>
+							<option value="대형">대형</option>
+							<option value="중형">중형</option>
+							<option value="소형">소형</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>상세 사이즈</th>
+					<td><input type="text" name="gsize2" id="gsize2" value="${goods.gsize2 }"></td>
 				</tr>
 				<tr>
 					<th>상세정보</th>

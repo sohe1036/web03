@@ -26,7 +26,7 @@
 				<p>상품명 : ${basket.gname }</p>
 				<p>사이즈 : ${basket.gsize }</p>
 				<p>컬러 :${basket.gcolor }</p>
-				<p>가격 : ${basket.price }</p>
+				<p>가격 : ${basket.price }원</p>
 				<p>수량 : ${basket.pieces }</p>
 				<p>종류 : ${basket.gtype }</p>
 				<p><img src="${basket.gimg }"></p>

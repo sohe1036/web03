@@ -25,6 +25,7 @@
 					<th>번호</th>
 					<th>제품명</th>
 					<th>사이즈</th>
+					<th>상세사이즈</th>
 					<th>컬러</th>
 					<th>가격</th>
 					<th>이미지</th>
@@ -36,8 +37,9 @@
 					<td>${goods.gno }</td>			<!-- goods에 정보담아서 배열에 넣었으니까 변수 goods로 -->
 					<td>${goods.gname }</td>
 					<td>${goods.gsize }</td>
+					<td>${goods.gsize2 }</td>
 					<td>${goods.gcolor }</td>
-					<td>${goods.price }</td>
+					<td>${goods.price }원</td>
 					<td><a href="${path1 }/GetGoodsCtrl?gno=${goods.gno }" ><img src=${path1 }/${goods.gimg }></a></td>
 				</tr>
 				</c:forEach>

@@ -27,8 +27,8 @@ public class EditGoodsCtrl extends HttpServlet {
 		response.setCharacterEncoding(("UTF-8"));
 		response.setContentType("text/html; charset=UTF-8");
 		
-		//String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload";		//파일이 업로드 될 경로
-		String saveFolder = "D:/LIM/jsp1/web03/src/main/webapp/upload";
+		String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload";		//파일이 업로드 될 경로
+		//String saveFolder = "D:/LIM/jsp1/web03/src/main/webapp/upload";
 		int maxSize = 5 * 1024 * 1024;			//업로드 될 최대 사이즈 용량 5M
 		
 		MultipartRequest multi	= new MultipartRequest(request, saveFolder, maxSize, "UTF-8");
@@ -37,9 +37,10 @@ public class EditGoodsCtrl extends HttpServlet {
 		String gname = multi.getParameter("gname");			//입력된 값을 파라미터로 받아
 		String gimg = "";
 		String gtype = multi.getParameter("gtype");
-		String price = multi.getParameter("price");
+		int price = Integer.parseInt(multi.getParameter("price"));
 		String gcolor = multi.getParameter("gcolor");
 		String gsize = multi.getParameter("gsize");
+		String gsize2 = multi.getParameter("gsize2");
 		String ginfo = multi.getParameter("ginfo");
 		int pieces = Integer.parseInt(multi.getParameter("pieces"));
 		
@@ -62,6 +63,7 @@ public class EditGoodsCtrl extends HttpServlet {
 		vo.setPrice(price);
 		vo.setGcolor(gcolor);
 		vo.setGsize(gsize);
+		vo.setGsize2(gsize2);
 		vo.setGinfo(ginfo);
 		vo.setPieces(pieces);
 		

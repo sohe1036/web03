@@ -7,7 +7,7 @@ public class BasketVO {
 	private String gsize;
 	private String gcolor;
 	private int gno;
-	private String price;
+	private int price;
 	private int pieces;
 	private String u_id;
 	public int getBno() {
@@ -40,10 +40,10 @@ public class BasketVO {
 	public void setGno(int gno) {
 		this.gno = gno;
 	}
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	public int getPieces() {

@@ -36,7 +36,7 @@ public class BasketDAO {
 				vo.setGsize(rs.getString("gsize"));
 				vo.setGcolor(rs.getString("gcolor"));
 				vo.setGno(rs.getInt("gno"));
-				vo.setPrice(rs.getString("price"));
+				vo.setPrice(rs.getInt("price"));
 				vo.setPieces(rs.getInt("pieces"));
 				vo.setU_id(rs.getString("u_id"));
 				list.add(vo);
@@ -71,7 +71,7 @@ public class BasketDAO {
 			basket.setGsize(rs.getString("gsize"));
 			basket.setGcolor(rs.getString("gcolor"));
 			basket.setGno(rs.getInt("gno"));
-			basket.setPrice(rs.getString("price"));
+			basket.setPrice(rs.getInt("price"));
 			basket.setPieces(rs.getInt("pieces"));
 			basket.setU_id(rs.getString("u_id"));
 			basket.setGtype(rs.getString("gtype"));
@@ -148,9 +148,9 @@ public class BasketDAO {
 			pstmt.setInt(2, vo.getGno());
 			pstmt.setString(3, vo.getGsize());
 			pstmt.setString(4, vo.getGcolor());
-			pstmt.setString(5, vo.getPrice());
-			pstmt.setInt(6, vo.getPieces());
-			pstmt.setString(7, vo.getU_id());
+			pstmt.setInt(5, vo.getPieces());
+			pstmt.setString(6, vo.getU_id());
+			pstmt.setInt(7, vo.getPrice());
 			cnt = pstmt.executeUpdate();
 			
 		}catch(ClassNotFoundException e) {

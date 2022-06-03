@@ -29,7 +29,7 @@ public class AddBasketCtrl extends HttpServlet {
 		String gname = request.getParameter("gname");
 		String gsize = request.getParameter("gsize");
 		String gcolor = request.getParameter("gcolor");
-		String price = request.getParameter("price");
+		int price = Integer.parseInt(request.getParameter("price"));
 		HttpSession session = request.getSession();			//세션 불러와
 		String sid = (String) session.getAttribute("sid");		//세션에 저장된 u_id변수:sid
 		
