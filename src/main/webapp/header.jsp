@@ -32,10 +32,10 @@
 		          <a class="navbar-item" href="${path }/GetGoodsListCtrl?gsize=79CM&gsize2=76CM&gsize3=73CM">
 		            대형캐리어
 		          </a>
-		          <a class="navbar-item">
+		          <a class="navbar-item" href="${path }/GetGoodsListCtrl?gsize=69CM&gsize2=67CM&gsize3=67CM">
 		            중형캐리어
 		          </a>
-		          <a class="navbar-item">
+		          <a class="navbar-item" href="${path }/GetGoodsListCtrl?gsize=55CM&gsize2=55CM&gsize3=55CM">
 		            소형캐리어
 		          </a>
 		        </div>
@@ -45,7 +45,7 @@
 		          백팩
 		        </a>
 		        <div class="navbar-dropdown">
-		          <a class="navbar-item">
+		          <a class="navbar-item" href="${path }/GetGoodsListCtrl?gsize=대형">
 		            대형백팩
 		          </a>
 		          <a class="navbar-item">

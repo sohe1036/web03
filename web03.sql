@@ -112,8 +112,8 @@ create table payment(ono number primary key, -- 결제번호
     money number,           -- 결제금액
     sdate date,             -- 결제일
     gno number,             -- 상품코드
-    amount number,          -- 수량
-    userid varchar2(20),    -- 사용자아이디
+    pieces number,          -- 수량
+    u_id varchar2(20),    -- 사용자아이디
 	rname varchar2(30),     -- 수신자명
     tel varchar2(20),       -- 수신자전화번호
     addr1 varchar2(200),    -- 수신자 기본주소
@@ -126,6 +126,7 @@ create table payment(ono number primary key, -- 결제번호
 	memo varchar2(100)     -- 메모
 );
 
+drop table payment;
 
 CREATE TABLE db_access (
   no number primary key,

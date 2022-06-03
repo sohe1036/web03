@@ -32,7 +32,7 @@ li { float: left; padding: 20px;}
 			<p>수량 : ${basket.pieces }</p>
 			<br>	
 			<a href="${path1 }/GetBasketCtrl?bno=${basket.bno }" class="button is-info">상세보기</a> &nbsp;&nbsp;
-			<a href="${path1 }/" class="button is-info">주문하기</a>
+			<a href="${path1 }/SailFormCtrl?gno=${basket.gno }&bno=${basket.bno }" class="button is-info">주문하기</a>
 			</li>
 		</ul>
 		</c:forEach>

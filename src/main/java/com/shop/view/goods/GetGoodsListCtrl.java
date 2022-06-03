@@ -33,7 +33,7 @@ public class GetGoodsListCtrl extends HttpServlet {
 		ArrayList<GoodsVO> list;
 		if(gsize!=null && gsize2!=null && gsize3!=null){
 			list = dao.getGoodsList(gsize, gsize2, gsize3);
-		}else if(gsize!=null) {
+		}else if(gsize!=null && gsize2!=null) {
 			list = dao.getGoodsList(gsize);		//리턴된 list에 dao메서드호출
 		}else {
 			list = dao.getGoodsList();
