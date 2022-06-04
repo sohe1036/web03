@@ -16,15 +16,15 @@ import com.shop.model.GoodsDAO;
 import com.shop.model.PaymentDAO;
 
 @WebServlet("/AddPatmentCtrl")
-public class AddPatmentCtrl extends HttpServlet {
+public class AddPaymentCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public AddPatmentCtrl() {
+    public AddPaymentCtrl() {
         super();
 
     }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
@@ -79,9 +79,9 @@ public class AddPatmentCtrl extends HttpServlet {
 			num = gdao.countGoods(gno);  //리턴되는 num에 메서드(매개변수)->수량만 select
 			amount = num - pieces;		//상품수량에서 주문수량 빼면 남은수량	
 			
-			gcnt = gdao.editGoods(gno, num);
+			gcnt = gdao.editGoods(gno, amount);
 			if(gcnt>0) {		
-				System.out.println("제품수령변경");
+				System.out.println("제품수량변경");
 			}else {
 				System.out.println("제품수량변경 안됨");
 			}

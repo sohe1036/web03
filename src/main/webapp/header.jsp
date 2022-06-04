@@ -136,6 +136,9 @@
 		          <a href="${path }/GetGoodsListCtrl" class="button is-primary" >
 		            제품관리
 		          </a>
+		          <a href="${path }/GetPaymentListCtrl" class="button is-primary" >
+		            판매관리
+		          </a>
 		          <a href="${path }/AccessListCtrl" class="button is-primary">
 		            접속자관리
 		          </a>    

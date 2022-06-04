@@ -60,7 +60,10 @@
 				<td>${member.visited }</td>
 			</tr>
 			<tr>
-				<td><a href="${path1 }/GetUserCtrl?u_id=${member.u_id }" class="button is-info">정보수정</a></td>
+				<td>
+				<a href="${path1 }/GetUserCtrl?u_id=${sid }" class="button is-info">정보수정</a> &nbsp;&nbsp;
+				<a href="${path1 }/MyPaymentCtrl?u_id=${sid }" class="button is-info">주문조회</a>
+				</td>
 			</tr>
 		</table>
 	</div>	

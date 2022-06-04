@@ -278,7 +278,7 @@ public int editGoods(int gno, int num) {			//구매 후 상품수량 업데이�
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "update goods set pieces=?, where gno=?";
+			sql = "update goods set pieces=? where gno=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);		//수량을 변수 num에 저장했음
 			pstmt.setInt(2, gno);
