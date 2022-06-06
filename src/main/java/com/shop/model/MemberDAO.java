@@ -141,7 +141,7 @@ public class MemberDAO {
 		String upw = Base64.getEncoder().encodeToString(vo.getU_pw().getBytes());		//암호화 byte[]->String
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "update member set u_pw=?, tell=?, email=?, birth=?, postcode=?, addr1=?, addr2=? where u_id=?";
+			sql = "update member set u_pw=?, tell=?, email=?, birth=?, postcode=?, addr1=?, addr2=?, point=? where u_id=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, upw);
 			pstmt.setString(2, vo.getTell());
@@ -150,7 +150,8 @@ public class MemberDAO {
 			pstmt.setString(5, vo.getPostcode());
 			pstmt.setString(6, vo.getAddr1());
 			pstmt.setString(7, vo.getAddr2());
-			pstmt.setString(8, vo.getU_id());
+			pstmt.setInt(8, vo.getPoint());
+			pstmt.setString(9, vo.getU_id());
 			cnt = pstmt.executeUpdate();
 			
 		}catch(ClassNotFoundException e) {
@@ -263,7 +264,7 @@ public class MemberDAO {
 	}
 	public ArrayList<MemberVO> JSONMemberList() {		//반환자, 메서드- 고객목록 -제이손
 		ArrayList<MemberVO> list = new ArrayList<MemberVO>();		//MemberVO를 배열에 담아 
-		
+		byte[] pwc;  //복호화할 암호저장
 		try {
 			conn = JDBCConnection.getConnection();
 			sql = "select u_id, u_pw, name, tell, email, birth, postcode, addr1, addr2, to_char(regdate, 'yyyy-MM-dd HH24:mi:ss') as cdate, point, visited from member where u_id=?";
@@ -273,7 +274,8 @@ public class MemberDAO {
 			while(rs.next()) {
 				MemberVO vo = new MemberVO();		//vo변수에 rs안의 정보 가져와서 set
 				vo.setU_id(rs.getString("u_id"));
-				vo.setU_pw(rs.getString("u_pw"));
+				pwc = Base64.getDecoder().decode(rs.getString("userpw")); //String을 복호화하여 바이트 배열로 저장
+				String u_pw = new String(pwc); //바이트 배열을 문자열(String)으로 
 				vo.setName(rs.getString("name"));
 				vo.setTell(rs.getString("tell"));
 				vo.setEmail(rs.getString("email"));

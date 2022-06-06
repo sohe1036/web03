@@ -52,9 +52,9 @@
 				<tr>
 					<th>주소</th>
 					<td>
-					<input type="text" name="postcode" id="postcode" value="${member.postcode }" required>
-					<input type="text" name="addr1" id="addr1" value="${member.addr1 }" required>
-					<input type="text" name="addr2" id="addr2" value="${member.addr2 }" required>
+					<p><input type="text" name="postcode" id="postcode" value="${member.postcode }" required></p>
+					<p><input type="text" name="addr1" id="addr1" value="${member.addr1 }" required></p>
+					<p><input type="text" name="addr2" id="addr2" value="${member.addr2 }" required></p>
 					<input type="button" value="주소찾기" onclick="findAddr()" class="button is-info">
 					</td>
 				<tr>	
@@ -63,7 +63,10 @@
 				</tr>
 				<tr>
 					<th>포인트</th>
-					<td>${member.point }</td>
+					<td>
+					${member.point }
+					<input type="hidden" name="point" is="point" value=${member.point }>
+					</td>
 				</tr>
 				<tr>
 					<th>방문횟수</th>

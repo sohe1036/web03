@@ -11,7 +11,7 @@
 <title>주문조회</title>
 <style>
 .navbar-link:not(.is-arrowless)::after { display:none; }
-.form_warp { width: 1600px; margin: 0 auto;}
+.form_warp { width: 1500px; margin: 0 auto;}
 </style>
 </head>
 <body>
@@ -73,7 +73,7 @@
 					<td>	
 						<c:if test="${empty vo.transno }">
 							<a href="${path1 }/EditShoppingCtrl?ono=${vo.ono }" class="button is-light">배송 수정</a>
-							<a href="${path1 }/DelPaymentCtrl?ono=${vo.ono }" class="button is-light">결제 취소</a>
+							<a href="${path1 }/DelPaymentCtrl?ono=${vo.ono }&gno=${vo.gno }&pieces=${vo.pieces }" class="button is-light">결제 취소</a>
 						</c:if>
 						<c:if test="${!empty vo.transno }">
 							<span>배송 시작</span>

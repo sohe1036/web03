@@ -28,7 +28,10 @@
 					</tr>
 					<tr>
 						<th>아이디</th>
-						<td><input type="text" name="u_id" id="u_id" value="${member.u_id }" readonly /></td>					
+						<td>
+						<input type="text" name="u_id" id="u_id" value="${member.u_id }" readonly />
+						<input type="hidden" name="u_pw" id="u_pw" value="${member.u_pw }" required>
+						</td>					
 					</tr>
 					<tr>
 						<th>전화번호</th>

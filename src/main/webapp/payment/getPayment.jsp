@@ -163,7 +163,7 @@
 						<td colspan="2">
 							<input type="submit" value="배송지 입력" class="button is-info"/>
 							<input type="reset" value="취소" class="button is-info"/>
-							<a href="${path1 }/DelPaymentCtrl?ono=${payment.ono }" class="button is-info">판매 정보 삭제</a>
+							<a href="${path1 }/DelPaymentCtrl?ono=${payment.ono }&gno=${payment.gno }&pieces=${payment.pieces }" class="button is-info">판매 정보 삭제</a>
 							<a href="${path1 }/GetPaymentListCtrl" class="button is-info">목록</a>
 						</td>
 					</tr>
