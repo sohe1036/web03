@@ -27,6 +27,7 @@
 					<th>주문날짜</th>
 					<th>아이디</th>
 					<th>결제금액</th>
+					<th>배송상태</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -37,6 +38,12 @@
 					<td>${vo.sdate }</td>
 					<td><a href="${path1 }/GetMemberCtrl?u_id=${vo.u_id }" target="_blank" >${vo.u_id }</a></td>
 					<td>${vo.money }</td>
+					<c:if test="${!empty vo.rstatus }">
+					<td>${vo.rstatus }</td>
+					</c:if>
+					<c:if test="${empty vo.rstatus }">
+					<td><span>운송장 미입력</span></td>
+					</c:if>
 				</tr>
 				</c:forEach>
 				<tr>

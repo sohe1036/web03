@@ -136,20 +136,15 @@
 					<tr>
 						<th>배송상태</th>
 						<td>
-							<c:if test="${!empty payment.rstatus }">		
-								<input type="text" name="rstatus" value="${payment.rstatus }"/>
-							</c:if>
-							<c:if test="${empty payment.rstatus }">	
 								<select name="rstatus">
 									<option value="배송시작">배송시작</option>
 									<option value="배송중">배송중</option>
 									<option value="배송완료">배송완료</option>
 								</select>
-							</c:if>
 						</td>
 					</tr>
 					<tr>
-						<th>도착에정일</th>
+						<th>도착예정일</th>
 						<td>
 							<c:if test="${!empty payment.rdate }">
 							<input type="text" name="rdate" value="${payment.rdate }">

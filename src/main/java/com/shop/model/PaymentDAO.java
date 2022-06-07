@@ -189,7 +189,7 @@ public class PaymentDAO {
 		PaymentVO payment = new PaymentVO();
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "select * from payment where ono=? ";
+			sql = "select ono,paytype,payno,money,sdate,gno,pieces,u_id,rname,tel,addr1,addr2,postcode,transno,transco,rstatus,to_char(rdate,'RRRR-MM-DD')as r,memo from payment where ono=? ";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, ono);
 			rs = pstmt.executeQuery();
@@ -211,7 +211,7 @@ public class PaymentDAO {
 				payment.setTransno(rs.getString("transno"));
 				payment.setTransco(rs.getString("transco"));
 				payment.setRstatus(rs.getString("rstatus"));
-				payment.setRdate(rs.getString("rdate"));
+				payment.setRdate(rs.getString("r"));
 				payment.setMemo(rs.getString("memo"));
 			}
 		}catch(ClassNotFoundException e) {

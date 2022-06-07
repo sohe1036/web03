@@ -76,7 +76,10 @@
 							<a href="${path1 }/DelPaymentCtrl?ono=${vo.ono }&gno=${vo.gno }&pieces=${vo.pieces }" class="button is-light">결제 취소</a>
 						</c:if>
 						<c:if test="${!empty vo.transno }">
-							<span>배송 시작</span>
+							<span>${vo.rstatus }</span>
+						</c:if>
+						<c:if test="${vo.rstatus=='배송완료' }">
+							<a href="./review/addReviewForm.jsp?gno=${vo.gno }" class="button is-light">리뷰작성</a>
 						</c:if>
 					</td>
 				</tr>

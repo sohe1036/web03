@@ -27,8 +27,8 @@ public class EditGoodsCtrl extends HttpServlet {
 		response.setCharacterEncoding(("UTF-8"));
 		response.setContentType("text/html; charset=UTF-8");
 		
-		//String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload";		//파일이 업로드 될 경로
-		String saveFolder = "D:/LIM/jsp1/web03/src/main/webapp/upload";
+		String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload";		//파일이 업로드 될 경로
+		//String saveFolder = "D:/LIM/jsp1/web03/src/main/webapp/upload";
 		int maxSize = 5 * 1024 * 1024;			//업로드 될 최대 사이즈 용량 5M
 		
 		MultipartRequest multi	= new MultipartRequest(request, saveFolder, maxSize, "UTF-8");
@@ -70,7 +70,7 @@ public class EditGoodsCtrl extends HttpServlet {
 		GoodsDAO dao = new GoodsDAO();		//DAO 선언
 		int cnt = dao.editGoods(vo);		//리턴된 cnt에 메서드(매개변수)입력
 		
-		if(cnt>0) {		//투가된 데이터가 있을 때
+		if(cnt>0) {		//추가된 데이터가 있을 때
 			response.sendRedirect("GetGoodsCtrl?gno="+gno);
 		}else {
 			response.sendRedirect("./goods/updateGoods.jsp");

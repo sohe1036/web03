@@ -182,4 +182,15 @@ CREATE TABLE db_access (
 
 select * from db_access;
 
+CREATE TABLE review(
+u_id varchar2(40) primary key,
+retitle varchar2(100) not null,
+recontent varchar(1000) not null,
+redate date default sysdate,
+reimg varchar2(300),
+best number,
+gno number(20) not null
+);
+select * from review;
+drop table review;
 commit;
