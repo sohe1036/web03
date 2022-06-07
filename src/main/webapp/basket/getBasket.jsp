@@ -29,7 +29,7 @@
 				<p>가격 : ${basket.price }원</p>
 				<p>수량 : ${basket.pieces }</p>
 				<p>종류 : ${basket.gtype }</p>
-				<p><img src="${basket.gimg }"></p>
+				<p><img src="${path1 }/${basket.gimg }"></p>
 				<p>${basket.ginfo }</p>
 				<a href="${path1 }/GetBasketListCtrl" class="button is-info">목록</a> &nbsp;&nbsp;
 				<a href="${path1 }/DelBasketCtrl?bno=${basket.bno }" class="button is-info">삭제</a>

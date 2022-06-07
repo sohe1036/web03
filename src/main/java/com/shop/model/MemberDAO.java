@@ -184,6 +184,12 @@ public class MemberDAO {
 				String upw = new String(pwc);		//복호화된 비밀번호를 string으로 바꿔
 				if(vo.getU_pw().equals(upw)) { //바꾼 값과 vo에 저장되어있는 비밀번호 비교
 					cnt = 1;		//로그인
+					rs.close();		//rs닫기
+					pstmt.close();		//pstmt 닫기
+					sql = "update member set visited=visited+1 where u_id=?";		//로그인 할 때 마다 방문횟수 +1 증가
+					pstmt = conn.prepareStatement(sql);		//pstmt다시열고
+					pstmt.setString(1, vo.getU_id());		
+					pstmt.executeUpdate();
 				} else {
 					cnt = 0;		//로그인불가
 				}

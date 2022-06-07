@@ -73,6 +73,12 @@ update goods set price='209000' where gno=7;
 update goods set price='189000' where gno=8;
 update goods set price='99000' where gno=9;
 update goods set price='69000' where gno=10;
+update goods set price='10000' where gno=11;
+update goods set price='99000' where gno=13;
+update goods set price='69000' where gno=14;
+update goods set price='198000' where gno=15;
+update goods set price='148000' where gno=16;
+update goods set price='148000' where gno=17;
 alter table goods modify price number(20) not null;
 --------------------
 desc goods;
@@ -130,6 +136,8 @@ price varchar2(100) ,       --상품가격
 pieces number(20) ,         --상품수량
 u_id varchar2(300) );       --구매자아이디
 
+alter table basket drop column price;
+alter table basket add price number(20);
 select * from basket;
 drop table basket;
 

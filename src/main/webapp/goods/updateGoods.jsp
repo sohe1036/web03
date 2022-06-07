@@ -33,7 +33,12 @@
 					<th>이미지</th>
 					<td>
 					<img src="${path1 }/${goods.gimg }">
+					<c:if test="${goods.gimg!=null }">
 					<input type="file" accept="image/png, image/jpeg, image/gif" name="gimg" id="gimg" value="${goods.gimg }" class="input is-normal"/>
+					</c:if>
+					<c:if test="${goods.gimg==null }">
+					<input type="hidden" accept="image/png, image/jpeg, image/gif" name="gimg" id="gimg" value="${goods.gimg }" class="input is-normal"/>
+					</c:if>
 					</td>
 				</tr>
 				<tr>

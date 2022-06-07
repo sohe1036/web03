@@ -55,14 +55,26 @@
 			<c:if test="${sid=='admin' }">
 			<tr>
 				<th>재고수량</th>
-				<td>${goods.pieces }</td>
+				<td>
+				<c:if test="${goods.pieces > 0 }">
+				${goods.pieces }
+				</c:if>
+				<c:if test="${goods.pieces==0 }">
+				<span>품절된 상품입니다.</span>
+				</c:if>
+				</td>
 			</tr>
 			</c:if>
 			<tr>
 				<td colspan="2">
 				<c:if test="${sid!=null }">
-				<a href="${path1 }/SailFormCtrl?gno=${goods.gno }" class="button is-info">주문하기</a>
-				<a href="${path1 }/AddBasketCtrl?gno=${goods.gno }&gname=${goods.gname }&gsize=${goods.gsize }&gcolor=${goods.gcolor }&price=${goods.price }" class="button is-info">장바구니</a>
+					<c:if test="${goods.pieces > 0 }">
+						<a href="${path1 }/SailFormCtrl?gno=${goods.gno }" class="button is-info">주문하기</a>
+						<a href="${path1 }/AddBasketCtrl?gno=${goods.gno }&gname=${goods.gname }&gsize=${goods.gsize }&gcolor=${goods.gcolor }&price=${goods.price }" class="button is-info">장바구니</a>
+					</c:if>
+					<c:if test="${goods.pieces==0 }">
+					<span style="color:red">품절</span> &nbsp;&nbsp;
+					</c:if>
 				</c:if>
 				<a href="${path1 }/GetGoodsListCtrl" class="button is-info">목록</a>
 				<c:if test="${sid=='admin' }">
