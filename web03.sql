@@ -183,7 +183,8 @@ CREATE TABLE db_access (
 select * from db_access;
 
 CREATE TABLE review(
-u_id varchar2(40) primary key,
+reno number(20) primary key,
+u_id varchar2(40) not null,
 retitle varchar2(100) not null,
 recontent varchar(1000) not null,
 redate date default sysdate,

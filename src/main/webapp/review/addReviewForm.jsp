@@ -9,11 +9,7 @@
 		sid =  (String)session.getAttribute("sid");		//세션에서 sid 값 받아와
 	}
 %> 	  
-<%
-	if(request.getParameter("gno")!=null){
-		int gno = Integer.parseInt(request.getParameter("gno"));
-	}
-%> 	  
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +19,7 @@
 <title>리뷰작성 폼</title>
 <style>
 .navbar-link:not(.is-arrowless)::after { display:none; }
+.form_warp { width: 800px; margin: 0 auto;}
 </style>
 </head>
 <body>
@@ -33,6 +30,14 @@
 			<h2 class="title is-3">리뷰 작성</h2>
 			<table class="table">
 				<tbody>
+					<tr>
+						<th>상품번호</th>
+						<td>${param.gno }</td>
+					</tr>
+					<tr>
+						<th>아이디</th>
+						<td><%=sid %></td>
+					</tr>
 					<tr>
 						<th>글제목</th>
 						<td><input type="text" name="retitle" id="retitle" required> </td>
@@ -51,7 +56,7 @@
 						<th>사진</th>
 						<td>
 						<input type="file" name="reimg" accept="image/png, image/jpeg, image/gif">
-						<input type="hidden" name="gno" value="${vo.gno }">
+						<input type="hidden" name="gno" value="${param.gno }">
 						</td>
 					</tr>
 					<tr>

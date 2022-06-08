@@ -29,12 +29,14 @@ public class AddReviewCtrl extends HttpServlet {
 		HttpSession session = request.getSession();
 		String u_id = "";
 		
-		String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload2";
+		//String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload2";
+		String saveFolder = "D:/LIM/jsp1/web03/src/main/webapp/upload2";
 		//업로드 된 파일 저장할 주소
 		
 		int maxSize = 10 * 1024 * 1024;		//최대용량
 		
 		MultipartRequest multi = new MultipartRequest(request, saveFolder, maxSize, "UTF-8");
+		
 		String retitle = multi.getParameter("retitle");
 		int best = Integer.parseInt(multi.getParameter("best"));
 		String recontent = multi.getParameter("recontent");
@@ -43,9 +45,9 @@ public class AddReviewCtrl extends HttpServlet {
 		u_id = (String) session.getAttribute("sid");
 		
 		try {
-			if(multi.getFilesystemName("reing")!=null) {
+			if(multi.getFilesystemName("reimg")!=null) {
 				String name = multi.getFilesystemName("reimg");
-				reimg = name;
+				name = reimg;
 			}
 			
 		}catch(Exception e) {
@@ -64,9 +66,9 @@ public class AddReviewCtrl extends HttpServlet {
 		int cnt = dao.addReview(vo);
 		
 		if (cnt>0) {
-			response.sendRedirect("MyPamentCtrl");
+			response.sendRedirect("MyPaymentCtrl");
 		}else {
-			response.sendRedirect("myPaymentCtrl");
+			response.sendRedirect("MyPaymentCtrl");
 		}
 	}
 
