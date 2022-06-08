@@ -149,4 +149,38 @@ public class ReviewDAO {
 		return review;
 	}
 	
+	public ReviewVO getReview(String u_id, int reno) {
+		ReviewVO review = new ReviewVO();
+		
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "select reno, u_id, retitle, recontent, to_char(redate,'RRRR-MM-DD')as r, reimg, best, gno from review where reno=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, reno);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				review.setReno(rs.getInt("reno"));
+				review.setU_id(rs.getString("u_id"));
+				review.setRetitle(rs.getString("retitle"));
+				review.setRecontent(rs.getString("recontent"));
+				review.setRedate(rs.getString("r"));
+				review.setReimg(rs.getString("reimg"));
+				review.setBest(rs.getInt("best"));
+				review.setGno(rs.getInt("gno"));
+			}
+			
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCConnection.close(rs, pstmt, conn);
+		}
+		
+		return review;
+	}
+
 }

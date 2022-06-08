@@ -27,10 +27,10 @@ public class AddReviewCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		HttpSession session = request.getSession();
-		String u_id = "";
+		String u_id = (String) session.getAttribute("sid");
 		
-		//String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload2";
-		String saveFolder = "D:/LIM/jsp1/web03/src/main/webapp/upload2";
+		String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload2";
+		//String saveFolder = "D:/LIM/jsp1/web03/src/main/webapp/upload2";
 		//업로드 된 파일 저장할 주소
 		
 		int maxSize = 10 * 1024 * 1024;		//최대용량
@@ -42,12 +42,12 @@ public class AddReviewCtrl extends HttpServlet {
 		String recontent = multi.getParameter("recontent");
 		String reimg ="";
 		int gno = Integer.parseInt(multi.getParameter("gno"));
-		u_id = (String) session.getAttribute("sid");
+		
 		
 		try {
 			if(multi.getFilesystemName("reimg")!=null) {
 				String name = multi.getFilesystemName("reimg");
-				name = reimg;
+				reimg = name;
 			}
 			
 		}catch(Exception e) {
@@ -60,7 +60,7 @@ public class AddReviewCtrl extends HttpServlet {
 		vo.setRecontent(recontent);
 		vo.setGno(gno);
 		vo.setU_id(u_id);
-		vo.setReimg("/upload/"+reimg);
+		vo.setReimg("/upload2/"+reimg);
 		
 		ReviewDAO dao = new ReviewDAO();
 		int cnt = dao.addReview(vo);

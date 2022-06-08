@@ -36,15 +36,15 @@
 					</tr>
 					<tr>
 						<th>아이디</th>
-						<td><%=sid %></td>
+						<td>${sid }</td>
 					</tr>
 					<tr>
 						<th>글제목</th>
-						<td><input type="text" name="retitle" id="retitle" required> </td>
+						<td><input type="text" name="retitle" id="retitle" value="" required> </td>
 					</tr>
 					<tr>	
 						<th>별점</th>
-						<td><input type="number" min="1" max="5" name="best" required ></td>
+						<td><input type="number" min="1" max="5" name="best" value="" required ></td>
 					</tr>
 					<tr>	
 						<th>글내용</th>
@@ -55,7 +55,7 @@
 					<tr>	
 						<th>사진</th>
 						<td>
-						<input type="file" name="reimg" accept="image/png, image/jpeg, image/gif">
+						<input type="file" name="reimg" accept="image/png, image/jpeg, image/gif" value="">
 						<input type="hidden" name="gno" value="${param.gno }">
 						</td>
 					</tr>

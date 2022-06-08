@@ -17,26 +17,49 @@
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
 <div id="content">
-	<div class=table_warp>
+	<div class="table_warp">
 		<h2 class="title is-3">메인 페이지</h2>
 		<table class="table">
-			<thead>
+			<tbody>
 				<tr>
 					<th>번호</th>
-					<th>제품번호</th>
-					<th>글제목</th>
-					<th>작성일</th>
+					<td>${review.reno }</td>
 				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${list }" var="re" varStatus="statue">
 				<tr>
-					<td>${re.reno }</td>
-					<td>${re.gno }</td>
-					<td><a href="GetReviewCtrl?reno=${re.reno }&u_id=${re.u_id}"> ${re.retitle }</a></td>
-					<td>${re.redate }</td>
+					<th>별점</th>
+					<td>
+					<c:forEach var="item" begin="0" end="${review.best -1}"  varStatus="status">
+					<img src="./img/star.png" >
+					</c:forEach>
+					</td>
 				</tr>
-				</c:forEach>
+				<tr>
+					<th>글 제목</th>
+					<td>${review.retitle }</td>
+				</tr>
+				<tr>
+					<th>글 내용</th>
+					<td>${review.recontent }</td>
+				</tr>
+				<tr>
+					<th>작성일</th>
+					<td>${review.redate }</td>
+				</tr>
+				<tr>
+					<th>리뷰이미지</th>
+					<td><img src="${path1 }/${review.reimg }"></td>
+				</tr>
+				<tr>
+					<th>상품번호</th>
+					<td>${review.gno }</td>
+				</tr>
+				<tr>
+				<td colspan="2">
+				<a href="${path1 }/UpdateReviewCtrl?reno=${review.reno }&u_id=${review.u_id }" class="button is-info">수정</a> &nbsp;&nbsp;
+				<a href="${path1 }/" class="button is-danger">삭제</a> &nbsp;&nbsp;
+				
+				</td>
+			</tr>
 			</tbody>
 		</table>
 	</div>
