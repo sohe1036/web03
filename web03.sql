@@ -195,3 +195,6 @@ gno number(20) not null
 select * from review;
 drop table review;
 commit;
+
+alter table review add ono number;
+create sequence scott.pay_seq increment by 1 start with 1 minvalue 1 maxvalue 100000 nocycle nocache;
