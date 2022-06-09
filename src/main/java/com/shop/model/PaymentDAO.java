@@ -54,7 +54,7 @@ public class PaymentDAO {
 	public int addPayment(PaymentVO vo, int bno) {  //주문정보입력 PamentVO와 bno불러서 결제 처리
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "insert into payment values((select nvl(max(ono), 0)+1 from payment), ?, ?, ?, sysdate, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			sql = "insert into payment values(pay_seq.nextval, ?, ?, ?, sysdate, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";		//주문번호는 삭제해도 같은번호 안되게 시퀀스 만들고 시퀀스로 insert
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getPaytype()); //o
 			pstmt.setString(2, vo.getPayno());	//o
@@ -141,7 +141,7 @@ public class PaymentDAO {
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "select * from payment where u_id=?";
+			sql = "select ono,paytype,payno,money,sdate,gno,pieces,u_id,rname,tel,addr1,addr2,postcode,transno,transco,rstatus,to_char(sdate,'RRRR-MM-DD')as r,memo from payment where u_id=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, u_id);
 			rs = pstmt.executeQuery();
@@ -164,7 +164,7 @@ public class PaymentDAO {
 				payment.setTransno(rs.getString("transno"));
 				payment.setTransco(rs.getString("transco"));
 				payment.setRstatus(rs.getString("rstatus"));
-				payment.setRdate(rs.getString("rdate"));
+				payment.setRdate(rs.getString("r"));
 				payment.setMemo(rs.getString("memo"));
 				list.add(payment);			//list에 정보담은 payment더해
 			}

@@ -80,7 +80,7 @@
 							<span>${vo.rstatus }</span>
 						</c:if>
 						<c:if test="${vo.rstatus=='배송완료' }">
-							<a href="./review/addReviewForm.jsp?gno=${vo.gno }" class="button is-light">리뷰작성</a>
+							<a href="${path1 }/ReviewCheckCtrl?ono=${vo.ono }&gno=${vo.gno }" class="button is-light">리뷰작성</a>
 						</c:if>
 					</td>
 				</tr>

@@ -36,7 +36,7 @@ public class IdCheckCtrl extends HttpServlet {
 			response.sendRedirect("./member/join.jsp");
 		}else {					//일치하는 아이디가 없을 때
 			application.setAttribute("msg", "yes");		
-			application.setAttribute("uid", uid);		//받았던 uid 다시전달
+			application.setAttribute("uid", uid);		//받았던 uid 다시전달하면 value에 uid넣어놨으니 화면에 아이디가 출력
 			response.sendRedirect("./member/join.jsp");
 		}
 	}

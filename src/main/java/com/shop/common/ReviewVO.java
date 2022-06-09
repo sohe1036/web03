@@ -9,7 +9,7 @@ public class ReviewVO {
 	private String reimg;
 	private int best;
 	private int gno;
-	
+	private int ono;
 	public int getReno() {
 		return reno;
 	}
@@ -57,6 +57,12 @@ public class ReviewVO {
 	}
 	public void setGno(int gno) {
 		this.gno = gno;
+	}
+	public int getOno() {
+		return ono;
+	}
+	public void setOno(int ono) {
+		this.ono = ono;
 	}
 	
 	

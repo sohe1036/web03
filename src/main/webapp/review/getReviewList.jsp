@@ -31,7 +31,7 @@
 			<tbody>
 				<c:forEach items="${list }" var="re" varStatus="statue">
 				<tr>
-					<td>${re.reno }</td>
+					<td>${statue.count }</td>		<!-- reno로하면 모든 리뷰번호가 출력되고 statue.count는 그 사람의 리뷰순서를 출력 -->
 					<td>${re.gno }</td>
 					<td><a href="GetReviewCtrl?reno=${re.reno }&u_id=${re.u_id}"> ${re.retitle }</a></td>
 					<td>${re.redate }</td>

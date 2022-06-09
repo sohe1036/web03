@@ -32,7 +32,7 @@
 				<tbody>
 					<tr>
 						<th>상품번호</th>
-						<td>${param.gno }</td>
+						<td>${gno }</td>
 					</tr>
 					<tr>
 						<th>아이디</th>
@@ -56,7 +56,8 @@
 						<th>사진</th>
 						<td>
 						<input type="file" name="reimg" accept="image/png, image/jpeg, image/gif" value="">
-						<input type="hidden" name="gno" value="${param.gno }">
+						<input type="hidden" name="gno" value="${gno }">
+						<input type="hidden" name="ono" value="${ono }">
 						</td>
 					</tr>
 					<tr>

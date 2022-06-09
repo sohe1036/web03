@@ -60,6 +60,7 @@ public class BasketDAO {
 		BesketDetailVO basket = new BesketDetailVO();			//VO객체 생성해서 정보 입력해줄 것
 		try {
 			conn = JDBCConnection.getConnection();		//메서드 호출
+			//이너조인으로 
 			sql = "select a.bno, a.gname, a.gsize, a.gcolor, a.gno, a.price, a.pieces, a.u_id, b.gtype, b.gimg, b.ginfo from basket a inner join goods b on a.gno=b.gno where bno=?";			//조건:bno ,이너조인,알리어스 사용
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bno);

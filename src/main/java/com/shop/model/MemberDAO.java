@@ -238,7 +238,7 @@ public class MemberDAO {
 			System.out.println("잘못된 요청입니다.");
 			e.printStackTrace();
 		}finally {
-			JDBCConnection.close(pstmt, conn);
+			JDBCConnection.close(rs, pstmt, conn);
 		}
 		
 		return cnt;

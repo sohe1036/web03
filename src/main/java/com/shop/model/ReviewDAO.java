@@ -17,11 +17,37 @@ public class ReviewDAO {
 	String sql = "";
 	int cnt = 0;
 	
-	public int addReview(ReviewVO vo) {
+	public int rewiewCheck(int ono) {		//리뷰작성여부체크
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "select * from review where ono=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ono);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {		//주문번호가 같은게 있다면 리뷰작성 안되게
+				cnt = 1;
+			}else {
+				cnt = 0;
+			}
+			
+			}catch(ClassNotFoundException e) {
+				e.printStackTrace();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				JDBCConnection.close(rs, pstmt, conn);			
+			}
+			return cnt;
+	}
+	
+	public int addReview(ReviewVO vo) {		//리뷰쓰기
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "insert into review values ((select nvl(max(reno), 0)+1 from review) ,?,?,?,sysdate,?,?,?)";
+			sql = "insert into review values ((select nvl(max(reno), 0)+1 from review) ,?,?,?,sysdate,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getU_id());
 			pstmt.setString(2, vo.getRetitle());
@@ -29,6 +55,7 @@ public class ReviewDAO {
 			pstmt.setString(4, vo.getReimg());
 			pstmt.setInt(5, vo.getBest());
 			pstmt.setInt(6, vo.getGno());
+			pstmt.setInt(7, vo.getOno());
 			cnt = pstmt.executeUpdate();
 			
 		}catch(ClassNotFoundException e) {
@@ -44,7 +71,7 @@ public class ReviewDAO {
 	}
 	
 	public ArrayList<ReviewVO> getReviewList(String u_id){
-		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
+		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();		//아이디별 리뷰리스트
 		
 		try {
 			conn = JDBCConnection.getConnection();
@@ -63,6 +90,7 @@ public class ReviewDAO {
 				vo.setReimg(rs.getString("reimg"));
 				vo.setBest(rs.getInt("best"));
 				vo.setGno(rs.getInt("gno"));
+				vo.setOno(rs.getInt("ono"));
 				 list.add(vo);
 			}
 			
@@ -79,7 +107,7 @@ public class ReviewDAO {
 		return list;
 	}
 	
-	public ArrayList<ReviewVO> getReviewList(int gno){
+	public ArrayList<ReviewVO> getReviewList(int gno){		//상품별 리뷰목록
 		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
 		
 		try {
@@ -99,6 +127,7 @@ public class ReviewDAO {
 				vo.setReimg(rs.getString("reimg"));
 				vo.setBest(rs.getInt("best"));
 				vo.setGno(rs.getInt("gno"));
+				vo.setOno(rs.getInt("ono"));
 				 list.add(vo);
 			}
 			
@@ -134,6 +163,7 @@ public class ReviewDAO {
 				review.setReimg(rs.getString("reimg"));
 				review.setBest(rs.getInt("best"));
 				review.setGno(rs.getInt("gno"));
+				review.setOno(rs.getInt("ono"));
 			}
 			
 		}catch(ClassNotFoundException e) {
@@ -149,12 +179,12 @@ public class ReviewDAO {
 		return review;
 	}
 	
-	public ReviewVO getReview(String u_id, int reno) {
+	public ReviewVO getReview(String u_id, int reno) {		//아이디별 리뷰상세보기
 		ReviewVO review = new ReviewVO();
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "select reno, u_id, retitle, recontent, to_char(redate,'RRRR-MM-DD')as r, reimg, best, gno from review where reno=?";
+			sql = "select reno, u_id, retitle, recontent, to_char(redate,'RRRR-MM-DD')as r, reimg, best, gno ,ono from review where reno=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, reno);
 			rs = pstmt.executeQuery();
@@ -168,6 +198,7 @@ public class ReviewDAO {
 				review.setReimg(rs.getString("reimg"));
 				review.setBest(rs.getInt("best"));
 				review.setGno(rs.getInt("gno"));
+				review.setGno(rs.getInt("ono"));
 			}
 			
 		}catch(ClassNotFoundException e) {

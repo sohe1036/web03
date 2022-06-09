@@ -42,12 +42,13 @@ public class AddReviewCtrl extends HttpServlet {
 		String recontent = multi.getParameter("recontent");
 		String reimg ="";
 		int gno = Integer.parseInt(multi.getParameter("gno"));
-		
+		int ono = Integer.parseInt(multi.getParameter("ono"));
 		
 		try {
 			if(multi.getFilesystemName("reimg")!=null) {
 				String name = multi.getFilesystemName("reimg");
 				reimg = name;
+				
 			}
 			
 		}catch(Exception e) {
@@ -61,7 +62,7 @@ public class AddReviewCtrl extends HttpServlet {
 		vo.setGno(gno);
 		vo.setU_id(u_id);
 		vo.setReimg("/upload2/"+reimg);
-		
+		vo.setOno(ono);
 		ReviewDAO dao = new ReviewDAO();
 		int cnt = dao.addReview(vo);
 		
