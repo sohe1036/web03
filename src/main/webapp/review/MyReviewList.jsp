@@ -18,7 +18,7 @@
 <jsp:include page="../header.jsp"></jsp:include>
 <div id="content">
 	<div class=table_warp>
-		<h2 class="title is-3">메인 페이지</h2>
+		<h2 class="title is-3">리뷰목록</h2>
 		<table class="table">
 			<thead>
 				<tr>
@@ -33,7 +33,7 @@
 				<tr>
 					<td>${statue.count }</td>		<!-- reno로하면 모든 리뷰번호가 출력되고 statue.count는 그 사람의 리뷰순서를 출력 -->
 					<td>${re.gno }</td>
-					<td><a href="GetReviewCtrl?reno=${re.reno }&u_id=${re.u_id}"> ${re.retitle }</a></td>
+					<td><a href="MyReviewCtrl?reno=${re.reno }&u_id=${re.u_id}"> ${re.retitle }</a></td>
 					<td>${re.redate }</td>
 				</tr>
 				</c:forEach>

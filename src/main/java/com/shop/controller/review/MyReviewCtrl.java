@@ -13,11 +13,11 @@ import javax.servlet.http.HttpSession;
 import com.shop.common.ReviewVO;
 import com.shop.model.ReviewDAO;
 
-@WebServlet("/GetReviewCtrl")
-public class GetReviewCtrl extends HttpServlet {
+@WebServlet("/MyReviewCtrl")
+public class MyReviewCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public GetReviewCtrl() {
+    public MyReviewCtrl() {
         super();
         
     }
@@ -35,10 +35,10 @@ public class GetReviewCtrl extends HttpServlet {
 		
 		if(review!=null) {
 			request.setAttribute("review", review);
-			RequestDispatcher view = request.getRequestDispatcher("./review/getReview.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("./review/MyReview.jsp");
 			view.forward(request, response);
 		}else {
-			response.sendRedirect("GetReviewListCtrl");
+			response.sendRedirect("MyReviewListCtrl");
 		}
 		
 	}

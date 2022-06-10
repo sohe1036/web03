@@ -62,11 +62,11 @@
 			<tr>
 				<td colspan="3">
 				<a href="${path1 }/GetUserCtrl?u_id=${sid }" class="button is-info">정보수정</a> &nbsp;&nbsp;
-				<a href="${path1 }/MyPaymentCtrl?u_id=${sid }" class="button is-info">주문조회</a> &nbsp;&nbsp;
-				<a href="${path1 }/GetReviewListCtrl?u_id=${sid }" class="button is-info">작성한 리뷰</a>
 				</td>
 			</tr>
 		</table>
+		<h2 class="title is-4"><a href="${path1 }/MyPaymentCtrl?u_id=${sid }" >주문조회</a></h2>
+		<h2 class="title is-4"><a href="${path1 }/MyReviewListCtrl?u_id=${sid }">내가 작성한 리뷰</a></h2>
 	</div>	
 </div>
 <jsp:include page="../footer.jsp"></jsp:include>

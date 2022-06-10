@@ -164,6 +164,7 @@ select * from payment;
 drop table payment;
 delete from payment;
 
+
 CREATE TABLE db_access (
   no number primary key,
   request_uri varchar(100),

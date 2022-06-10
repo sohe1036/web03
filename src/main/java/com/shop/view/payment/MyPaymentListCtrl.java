@@ -14,10 +14,10 @@ import com.shop.common.PaymentVO;
 import com.shop.model.PaymentDAO;
 
 @WebServlet("/GetPaymentListCtrl")
-public class GetPaymentListCtrl extends HttpServlet {
+public class MyPaymentListCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public GetPaymentListCtrl() {
+    public MyPaymentListCtrl() {
         super();
 
     }

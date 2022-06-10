@@ -18,7 +18,7 @@
 <jsp:include page="../header.jsp"></jsp:include>
 <div id="content">
 	<div class="table_warp">
-		<form action="">
+		<form action="${path1 }/EditReviewCtrl" method="post" enctype="multipart/form-data">
 			<h2 class="title is-3">메인 페이지</h2>
 			<table class="table">
 				<tbody>
@@ -41,7 +41,7 @@
 					</tr>
 					<tr>
 						<th>글 내용</th>
-						<td><textarea cols="80" rows="9">${review.recontent }</textarea></td>
+						<td><textarea cols="80" rows="9" name="recontent" required>${review.recontent }</textarea></td>
 					</tr>
 					<tr>
 						<th>작성일</th>
@@ -62,6 +62,7 @@
 						<td>
 						<span>${review.gno }</span>
 						<input type="hidden" name="gno" value="${review.gno }" />
+						<input type="hidden" name="ono" value="${review.ono }" />
 						</td>
 					</tr>
 					<tr>

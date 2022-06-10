@@ -13,11 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.shop.common.ReviewVO;
 import com.shop.model.ReviewDAO;
 
-@WebServlet("/GetReviewListCtrl")
-public class GetReviewListCtrl extends HttpServlet {
+@WebServlet("/MyReviewListCtrl")
+public class MyReviewListCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public GetReviewListCtrl() {
+    public MyReviewListCtrl() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,7 +33,7 @@ public class GetReviewListCtrl extends HttpServlet {
 		ArrayList<ReviewVO> list = dao.getReviewList(u_id);
 		
 		request.setAttribute("list",list);
-		RequestDispatcher view = request.getRequestDispatcher("./review/getReviewList.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("./review/MyReviewList.jsp");
 		view.forward(request, response);
 	}
 

@@ -184,7 +184,7 @@ public class ReviewDAO {
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "select reno, u_id, retitle, recontent, to_char(redate,'RRRR-MM-DD')as r, reimg, best, gno ,ono from review where reno=?";
+			sql = "select reno, u_id, retitle, recontent, to_char(redate,'yyyy-MM-dd')as r, reimg, best, gno ,ono from review where reno=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, reno);
 			rs = pstmt.executeQuery();
@@ -212,6 +212,32 @@ public class ReviewDAO {
 		}
 		
 		return review;
+	}
+	
+	public int editReview(ReviewVO vo) {
+		
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "update review set retitle=?, recontent=?, reimg=?, best=? where reno=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getRetitle());
+			pstmt.setString(2, vo.getRecontent());
+			pstmt.setString(3, vo.getReimg());
+			pstmt.setInt(4, vo.getBest());
+			pstmt.setInt(5, vo.getReno());
+			cnt = pstmt.executeUpdate();
+			
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCConnection.close(pstmt, conn);
+		}
+		
+		return cnt;
 	}
 
 }
