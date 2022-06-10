@@ -83,7 +83,34 @@
 				</c:if>
 				</td>
 			</tr>
-		</table>	
+		</table>
+		<table class="table">
+			<tbody>
+				<tr>
+					<td colspan="5">
+					<a href="${path1 }/GetReviewListCtrl?gno=${goods.gno }" class="button is-normal">리뷰</a>
+					</td>
+				</tr>
+				<c:forEach items="${list }" var="re" varStatus="status">
+				<c:if test="${re.retitle!=null }">
+				<tr>
+					<td>
+					<c:forEach var="item" begin="0" end="${re.best-1 }" varStatus="status">
+					<img src="${path1 }/img/star.png" />
+					</c:forEach>
+					</td>
+					<td>${re.u_id }</td>
+					<td>${re.redate }</td>
+					<td>${re.retitle }</td>
+					<td><a href="${path1 }/GetReviewCtrl?gno=${re.gno }&reno=${re.reno }" class="button is-small">상세</a></td>
+				</tr>
+				</c:if>
+				</c:forEach>
+			</tbody>	
+		</table>
+		<c:if test="">
+		
+		</c:if>	
 	</div>
 </div>
 <jsp:include page="../footer.jsp"></jsp:include>

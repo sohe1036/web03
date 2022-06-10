@@ -31,6 +31,7 @@ point number(20) default 1000,
 visited number(20) default 0);
 
 select * from member;
+select substr(u_id,1,length(u_id)-3)||lpad('*',3,'*')as id,u_pw from member;
 select u_id, u_pw, to_date(birth,'YYYY-MM-DD')as b from member where u_id='abc123';
 select * from member where u_id = ?;
 

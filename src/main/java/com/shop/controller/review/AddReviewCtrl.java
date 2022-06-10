@@ -29,8 +29,8 @@ public class AddReviewCtrl extends HttpServlet {
 		HttpSession session = request.getSession();
 		String u_id = (String) session.getAttribute("sid");
 		
-		//String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload2";
-		String saveFolder = "D:/LIM/jsp1/web03/src/main/webapp/upload2";
+		String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload2";
+		//String saveFolder = "D:/LIM/jsp1/web03/src/main/webapp/upload2";
 		//업로드 된 파일 저장할 주소
 		
 		int maxSize = 10 * 1024 * 1024;		//최대용량

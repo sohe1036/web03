@@ -55,9 +55,7 @@
 				</tr>
 				<tr>
 				<td colspan="2">
-				<a href="${path1 }/UpdateReviewCtrl?reno=${review.reno }&u_id=${review.u_id }" class="button is-info">수정</a> &nbsp;&nbsp;
-				<a href="${path1 }/DelreviewCtrl?reno=${review.reno }" class="button is-danger">삭제</a> &nbsp;&nbsp;
-				
+				<a href="${path1 }/GetReviewListCtrl?gno=${review.gno }" class="button is-info">목록</a> &nbsp;&nbsp;	
 				</td>
 			</tr>
 			</tbody>

@@ -12,37 +12,56 @@
 <style>
 .navbar-link:not(.is-arrowless)::after { display:none; }
 .table_warp { width: 800px; margin: 0 auto;}
-span { font-size: 25px; }
 </style>
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
 <div id="content">
 	<div class="table_warp">
-		<h2 class="title is-3">마이페이지</h2>
+		<h2 class="title is-3">내 정보</h2>
 		<table class="table">
 			<tr>
-				<td>
-				 <span>${member.name }</span>
-				 <span>(${member.u_id })님</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				 <a href="${path1 }/MypageDetailCtrl?u_id=${sid }" class="button is-normal">회원정보</a>
+				<th>아이디</th>
+				<td>${member.u_id }</td>
 			</tr>
 			<tr>
+				<th>이름</th>
+				<td>${member.name }</td>
+			</tr>
+			<tr>
+				<th>전화번호</th>
+				<td>${member.tell }</td>
+			</tr>
+			<tr>
+				<th>이메일</th>
+				<td>${member.email }</td>
+			</tr>
+			<tr>
+				<th>생년월일</th>
+				<td>${member.birth }</td>
+			</tr>
+			<tr>
+				<th>주소</th>
 				<td>
-				<span>보유 포인트 : </span>
-				<span>${member.point } P</span>
+				<p>${member.postcode }</p>
+				<p>${member.addr1 }</p>
+				<p>${member.addr2 }</p>
 				</td>
+			<tr>	
+				<th>가입일</th>
+				<td>${member.regdate }</td>
 			</tr>
 			<tr>
-				<td>
-					<span>주문내역</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="${path1 }/MyPaymentCtrl?u_id=${sid }" class="button is-normal">상세보기</a>
-				</td>
+				<th>포인트</th>
+				<td>${member.point }</td>
 			</tr>
 			<tr>
-				<td>
-					<span>리뷰</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="${path1 }/MyReviewListCtrl?u_id=${sid }" class="button is-normal">상세보기</a>
+				<th>방문횟수</th>
+				<td>${member.visited }</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+				<a href="${path1 }/GetUserCtrl?u_id=${sid }" class="button is-info">정보수정</a> &nbsp;&nbsp;
 				</td>
 			</tr>
 		</table>

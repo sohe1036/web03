@@ -1,3 +1,4 @@
+
 package com.shop.model;
 
 import java.sql.Connection;
@@ -112,7 +113,8 @@ public class ReviewDAO {
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "select * from review where gno=?";
+			//substr은 문자자를떄 사용(문자열,시작위치,길이)u_id의 첫번째값부터 데이터길이-3값까지 가져오고  lpad는 3자리만큼 왼쪽에서*문자열로 채우고,빈공간도 *로채운다는뜻(값,총문자길이,채움문자) ->함수를 ||로 다 연결하므로 전부실행
+			sql = "select reno,substr(u_id,1,length(u_id)-3)||lpad('*',3,'*') as id,retitle,recontent,to_char(redate,'yyyy-MM-dd') as re,reimg,best,gno,ono from review where gno=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, gno);
 			rs = pstmt.executeQuery();
@@ -120,10 +122,10 @@ public class ReviewDAO {
 			while(rs.next()) {
 				ReviewVO vo = new ReviewVO();
 				vo.setReno(rs.getInt("reno"));
-				vo.setU_id(rs.getString("u_id"));
+				vo.setU_id(rs.getString("id"));
 				vo.setRetitle(rs.getString("retitle"));
 				vo.setRecontent(rs.getString("recontent"));
-				vo.setRedate(rs.getString("redate"));
+				vo.setRedate(rs.getString("re"));
 				vo.setReimg(rs.getString("reimg"));
 				vo.setBest(rs.getInt("best"));
 				vo.setGno(rs.getInt("gno"));
@@ -144,14 +146,15 @@ public class ReviewDAO {
 		return list;
 	}
 
-	public ReviewVO getReview(int gno) {
+	public ReviewVO getReview(int gno, int reno) {		//상품번호별 리뷰상세
 		ReviewVO review = new ReviewVO();
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "select * from review where gno=?";
+			sql = "select * from review where gno=? and reno=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, gno);
+			pstmt.setInt(2, reno);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -237,6 +240,27 @@ public class ReviewDAO {
 			JDBCConnection.close(pstmt, conn);
 		}
 		
+		return cnt;
+	}
+	
+	public int delReview(int num) {
+		
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "delete from review where reno=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			cnt = pstmt.executeUpdate();
+			
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCConnection.close(pstmt, conn);
+		}
 		return cnt;
 	}
 
