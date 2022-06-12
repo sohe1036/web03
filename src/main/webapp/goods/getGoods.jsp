@@ -41,13 +41,15 @@
 				<td>${goods.gcolor }</td>
 			</tr>
 			<tr>
-				<th>사이즈</th>
+				<th>종류</th>
 				<td>${goods.gsize }</td>
 			</tr>
+			<c:if test="${goods.gsize2 !=null }">
 			<tr>
 				<th>상세 사이즈</th>
 				<td>${goods.gsize2 }</td>
 			</tr>
+			</c:if>
 			<tr>
 				<th>상세정보</th>
 				<td>${goods.ginfo }</td>

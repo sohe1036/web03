@@ -8,6 +8,9 @@
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+<style>
+#content { margin-top: 10px; }
+</style>
 <title>메인</title>
 <style>
 .navbar-link:not(.is-arrowless)::after { display:none; }
@@ -16,7 +19,9 @@
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 <div id="content">
-	<h2 class="title is-3">메인 페이지</h2>
+	<div class="main_img">
+		<img src="${path }/img/main1.jpg">
+	</div>
 
 </div>
 <jsp:include page="footer.jsp"></jsp:include>

@@ -37,7 +37,7 @@ public class EditBoardCtrl extends HttpServlet {
 		if(cnt>0) {
 			response.sendRedirect("/web03/GetBoardListCtrl");	//수정성공	
 		}else {
-			response.sendRedirect("/web03/GetBoardCtrl?num"+seq);  //수정실패-GetBoardCtrl은 num필요
+			response.sendRedirect("/web03/GetBoardCtrl?num="+seq);  //수정실패-GetBoardCtrl은 num필요
 		}
 		
 	}

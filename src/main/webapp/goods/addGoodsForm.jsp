@@ -48,12 +48,15 @@
 					<td><input type="text" name="gcolor" id="gcolor" required></td>
 				</tr>
 				<tr>
-					<th>사이즈</th>
+					<th>상품타입</th>
 					<td>
 						<select name="gsize" class="select is-primary" required>
 							<option value="대형">대형</option>
 							<option value="중형">중형</option>
 							<option value="소형">소형</option>
+							<option value="서류가방">서류가방</option>
+							<option value="크로스백">크로스백</option>
+							<option value="보스턴백">보스턴백</option>
 						</select>
 					</td>
 				</tr>
@@ -63,7 +66,7 @@
 				</tr>
 				<tr>
 					<th>상세사이즈</th>
-					<td><input type="text" name="gsize2" id="gsize2" required></td>
+					<td><input type="text" name="gsize2" id="gsize2" ></td>
 				</tr>
 				<tr>
 					<th>재고량</th>

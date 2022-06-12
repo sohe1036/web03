@@ -11,7 +11,10 @@
 <title>상품리스트</title>
 <style>
 .navbar-link:not(.is-arrowless)::after { display:none; }
+#content { margin-top: 30px; }
 .table_warp { width: 1260px; margin: 0 auto;}
+.th { float: left; padding-right: 20px; }
+.menu { float: left; margin-right: 30px; padding-bottom: 50px;}
 </style>
 </head>
 <body>
@@ -19,40 +22,37 @@
 <div id="content">
 	<div class="table_warp">
 		<h2 class="title is-3">상품 리스트</h2>
-		<table class=table>
-			<thead>
-				<tr>
-					<th>번호</th>
-					<th>제품명</th>
-					<th>사이즈</th>
-					<th>상세사이즈</th>
-					<th>컬러</th>
-					<th>가격</th>
-					<th>이미지</th>
-				</tr>
-			</thead>
-			<tbody>
+		<div class=table>
+			<div class="table_body">
 				<c:forEach items="${list }" var="goods" varStatus="status">			<!-- 배열을 다시 순서대로 풀어줘 -->
-				<tr>
-					<td>${goods.gno }</td>			<!-- goods에 정보담아서 배열에 넣었으니까 변수 goods로 -->
-					<td>${goods.gname }</td>
-					<td>${goods.gsize }</td>
-					<td>${goods.gsize2 }</td>
-					<td>${goods.gcolor }</td>
-					<td>${goods.price }원</td>
-					<td><a href="${path1 }/GetGoodsCtrl?gno=${goods.gno }" ><img src=${path1 }/${goods.gimg }></a></td>
-				</tr>
+				<ul class="menu">
+					<li class="th">번호</li>
+					<li class="td">${goods.gno }</li>			<!-- goods에 정보담아서 배열에 넣었으니까 변수 goods로 -->
+					<li class="th">제품명</li>
+					<li class="td">${goods.gname }</li>
+					<li class="th">상품타입</li>
+					<li class="td">${goods.gsize }</li>
+					<li class="th">상세사이즈</li>
+					<li class="td">${goods.gsize2 }</li>	
+					<li class="th">컬러</li>
+					<li class="td">${goods.gcolor }</li>
+					<li class="th">가격</li>
+					<li class="td">${goods.price }원</li>
+					<li class="td"><a href="${path1 }/GetGoodsCtrl?gno=${goods.gno }" ><img src=${path1 }/${goods.gimg }></a></li>
+				</ul>
 				</c:forEach>
-				<tr>
+			<div class="addgoods">	
+				<ul>
 				<c:if test="${sid=='admin' }">
-					<td colspan="2">
+					<li>
 						<a href="./goods/addGoodsForm.jsp" class="button is-info">추가</a>
-					</td>
+					</li>
 				</c:if>
-				</tr>	
-			</tbody>	
-		</table>
+				</ul>	
+			</div>	
+		</div>
 	</div>
+</div>
 </div>
 <jsp:include page="../footer.jsp"></jsp:include>
 </body>

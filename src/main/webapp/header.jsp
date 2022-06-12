@@ -8,6 +8,9 @@
 		sid =  (String)session.getAttribute("sid");		//세션에서 sid 값 받아와
 	}
 %>
+<style>
+#header { margin-top : 10px; }
+</style>
 <header id="header" >
 	<div class="hd_wrap">
 		<nav class="navbar" role="navigation" aria-label="main navigation">
@@ -57,17 +60,17 @@
 		        </div>
 		      </div>
 		      <div class="navbar-item has-dropdown is-hoverable">
-		        <a class="navbar-link">
+		        <a class="navbar-link" href="${path }/GetGoodsListCtrl?gtype=bag">
 		          가방
 		        </a>
 		        <div class="navbar-dropdown">
-		          <a class="navbar-item">
+		          <a class="navbar-item" href="${path }/GetGoodsListCtrl?gtype=bag&gsize=서류가방">
 		            서류가방
 		          </a>
-		          <a class="navbar-item">
+		          <a class="navbar-item" href="${path }/GetGoodsListCtrl?gtype=bag&gsize=크로스백">
 		            크로스백
 		          </a>
-		          <a class="navbar-item">
+		          <a class="navbar-item" href="${path }/GetGoodsListCtrl?gtype=bag&gsize=보스턴백">
 		            보스턴백
 		          </a>
 		        </div>
