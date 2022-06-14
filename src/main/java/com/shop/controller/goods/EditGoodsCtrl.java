@@ -27,8 +27,8 @@ public class EditGoodsCtrl extends HttpServlet {
 		response.setCharacterEncoding(("UTF-8"));
 		response.setContentType("text/html; charset=UTF-8");
 		
-		String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload";		//파일이 업로드 될 경로
-		//String saveFolder = "D:/LIM/jsp1/web03/src/main/webapp/upload";
+		//String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload";		//파일이 업로드 될 경로
+		String saveFolder = "D:/LIM/jsp1/web03/src/main/webapp/upload";
 		int maxSize = 5 * 1024 * 1024;			//업로드 될 최대 사이즈 용량 5M
 		
 		MultipartRequest multi	= new MultipartRequest(request, saveFolder, maxSize, "UTF-8");
@@ -44,21 +44,29 @@ public class EditGoodsCtrl extends HttpServlet {
 		String ginfo = multi.getParameter("ginfo");
 		int pieces = Integer.parseInt(multi.getParameter("pieces"));
 		
+		
 		try {
 			if(multi.getFilesystemName("gimg")!=null) {		//파일명이 null이아니라면
 				String name = multi.getFilesystemName("gimg");	//"gimg"의 이름 받아오기 중복일경우 1,2,3
 				File f = multi.getFile(name);
 				gimg = name;
+			}else {
+				gimg = request.getParameter(gimg);
 			}
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
+	
+		System.out.println("gimg는"+gimg);
+		
 		GoodsVO vo = new GoodsVO();			//VO 선언
 		vo.setGno(gno);
 		vo.setGname(gname);			//vo에 데이터 입력
+		if(gimg!=null) {
 		vo.setGimg("/upload/"+gimg);
+		}
 		vo.setGtype(gtype);
 		vo.setPrice(price);
 		vo.setGcolor(gcolor);

@@ -32,8 +32,6 @@
 					<li class="td">${goods.gname }</li>
 					<li class="th">상품타입</li>
 					<li class="td">${goods.gsize }</li>
-					<li class="th">상세사이즈</li>
-					<li class="td">${goods.gsize2 }</li>	
 					<li class="th">컬러</li>
 					<li class="td">${goods.gcolor }</li>
 					<li class="th">가격</li>

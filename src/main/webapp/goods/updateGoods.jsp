@@ -33,17 +33,19 @@
 					<th>이미지</th>
 					<td>
 					<img src="${path1 }/${goods.gimg }">
-					<input type="file" accept="image/png, image/jpeg, image/gif" name="gimg" id="gimg" value="${goods.gimg }" class="input is-normal"/>
+					<input type="file" accept="image/png, image/jpeg, image/gif" name="gimg" id="gimg" class="input is-normal"/>
+					<input type="hidden" accept="image/png, image/jpeg, image/gif" name="gimg" id="gimg" value="${goods.gimg }" class="input is-normal"/>
 					</td>
 				</tr>
 				<tr>
 					<th>상품타입</th>
 					<td>
 						<select name="gtype" class="select is-primary" required>
-							<option value="luggage">캐리어</option>
-							<option value="backpack">백팩</option>
-							<option value="bag">가방</option>
-							<option value="accessory">액세서리</option>						
+							<option value="${goods.gtype }">${goods.gtype }</option>
+							<option value="luggage">luggage</option>
+							<option value="backpack">backpack</option>
+							<option value="bag">bag</option>
+							<option value="accessory">accessory</option>						
 						</select>
 						<input type="hidden" name="gno" id="gno" value="${goods.gno }">
 					</td>
@@ -60,6 +62,7 @@
 					<th>상품타입</th>
 					<td>
 						<select name="gsize" class="select is-primary" required>
+							<option value="${goods.gsize }">${goods.gsize }</option>
 							<option value="대형">대형</option>
 							<option value="중형">중형</option>
 							<option value="소형">소형</option>

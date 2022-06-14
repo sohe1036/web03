@@ -32,10 +32,10 @@
 					<th>상품타입</th>
 					<td>
 						<select name="gtype" class="select is-primary" required>
-							<option value="luggage">캐리어</option>
-							<option value="backpack">백팩</option>
-							<option value="bag">가방</option>
-							<option value="accessory">액세서리</option>						
+							<option value="luggage">luggage</option>
+							<option value="backpack">backpack</option>
+							<option value="bag">bag</option>
+							<option value="accessory">accessory</option>						
 						</select>
 					</td>
 				</tr>

@@ -30,8 +30,8 @@ public class EditReviewCtrl extends HttpServlet {
 		HttpSession session = request.getSession();
 		String u_id = (String) session.getAttribute("sid");
 		
-		String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload2";
-		//String saveFolder = "D:/LIM/jsp1/web03/src/main/webapp/upload2";
+		//String saveFolder = "D:/sohee/eclipse_jsp/web03/src/main/webapp/upload2";
+		String saveFolder = "D:/LIM/jsp1/web03/src/main/webapp/upload2";
 		//업로드 된 파일 저장할 주소
 				
 		int maxSize = 10 * 1024 * 1024;		//최대용량
@@ -51,12 +51,14 @@ public class EditReviewCtrl extends HttpServlet {
 			if(multi.getFilesystemName("reimg")!=null) {			//파일명이 널이 아니면
 				String name = multi.getFilesystemName("reimg");
 				reimg = name;
+			}else {
+				reimg = request.getParameter(reimg);
 			}
 		
 		}catch(Exception e) {
 		e.printStackTrace();
 		}
-		
+
 		ReviewVO vo = new ReviewVO();
 		vo.setReno(reno);
 		vo.setRetitle(retitle);
@@ -65,7 +67,9 @@ public class EditReviewCtrl extends HttpServlet {
 		vo.setRedate(redate);
 		vo.setGno(gno);
 		vo.setU_id(u_id);
+		if(reimg!=null) {
 		vo.setReimg("/upload2/"+reimg);
+		}
 		vo.setOno(ono);
 		
 		ReviewDAO dao = new ReviewDAO();

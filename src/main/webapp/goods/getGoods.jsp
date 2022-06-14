@@ -86,15 +86,13 @@
 				</td>
 			</tr>
 		</table>
+		<div class="show_riview">
+			<a href="${path1 }/GetReviewListCtrl?gno=${goods.gno }" class="button is-normal">리뷰</a>
+		</div>
 		<table class="table">
-			<tbody>
-				<tr>
-					<td colspan="5">
-					<a href="${path1 }/GetReviewListCtrl?gno=${goods.gno }" class="button is-normal">리뷰</a>
-					</td>
-				</tr>
+			<tbody>		
 				<c:forEach items="${list }" var="re" varStatus="status">
-				<c:if test="${re.retitle!=null }">
+				<c:if test="${!empty re.retitle}">
 				<tr>
 					<td>
 					<c:forEach var="item" begin="0" end="${re.best-1 }" varStatus="status">
@@ -106,6 +104,9 @@
 					<td>${re.retitle }</td>
 					<td><a href="${path1 }/GetReviewCtrl?gno=${re.gno }&reno=${re.reno }" class="button is-small">상세</a></td>
 				</tr>
+				</c:if>
+				<c:if test="${empty re.retitle}">
+				<tr><td>아직 리뷰가 없습니다.</td></tr>
 				</c:if>
 				</c:forEach>
 			</tbody>	

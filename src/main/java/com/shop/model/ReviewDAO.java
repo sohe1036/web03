@@ -221,13 +221,22 @@ public class ReviewDAO {
 		
 		try {
 			conn = JDBCConnection.getConnection();
-			sql = "update review set retitle=?, recontent=?, reimg=?, best=? where reno=?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getRetitle());
-			pstmt.setString(2, vo.getRecontent());
-			pstmt.setString(3, vo.getReimg());
-			pstmt.setInt(4, vo.getBest());
-			pstmt.setInt(5, vo.getReno());
+			if(vo.getReimg()!=null) {	//수정할 값 있을때
+				sql = "update review set retitle=?, recontent=?, reimg=?, best=? where reno=?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, vo.getRetitle());
+				pstmt.setString(2, vo.getRecontent());
+				pstmt.setString(3, vo.getReimg());
+				pstmt.setInt(4, vo.getBest());
+				pstmt.setInt(5, vo.getReno());
+			}else {		//수정할 값 없을때
+				sql = "update review set retitle=?, recontent=?, best=? where reno=?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, vo.getRetitle());
+				pstmt.setString(2, vo.getRecontent());
+				pstmt.setInt(3, vo.getBest());
+				pstmt.setInt(4, vo.getReno());
+			}
 			cnt = pstmt.executeUpdate();
 			
 		}catch(ClassNotFoundException e) {
