@@ -200,3 +200,24 @@ commit;
 
 alter table review add ono number;
 create sequence scott.pay_seq increment by 1 start with 1 minvalue 1 maxvalue 100000 nocycle nocache;
+select* from mem;
+drop table mem;
+create table mem (u_id varchar2(40) primary key,
+u_pw varchar2(300) not null,
+name varchar2(40) not null,
+tell varchar2(20) not null,
+email varchar2(100) not null,
+birth date,
+regdate date not null,
+point number(20) default 1000,
+visited number(20) default 0);
+
+create table databank (
+    datano number primary key,
+    dtitle varchar2(255) not null,
+    dcontent varchar2(1000),
+    dposter varchar2(255),
+    dfilename varchar2(255),
+    dview char(1) default 'Y',
+    regdate date default sysdate
+);

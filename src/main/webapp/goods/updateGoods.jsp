@@ -34,7 +34,6 @@
 					<td>
 					<img src="${path1 }/${goods.gimg }">
 					<input type="file" accept="image/png, image/jpeg, image/gif" name="gimg" id="gimg" class="input is-normal"/>
-					<input type="hidden" accept="image/png, image/jpeg, image/gif" name="gimg" id="gimg" value="${goods.gimg }" class="input is-normal"/>
 					</td>
 				</tr>
 				<tr>

@@ -55,7 +55,6 @@
 						<td>
 						<img src="${path1 }/${review.reimg }">
 						<input type="file" name="reimg" accept="*.jpeg,*.jpg, *.png, *.gif" />
-						<input type="hidden" name="reimg" accept="*.jpeg,*.jpg, *.png, *.gif" value="${review.reimg }"/>
 						</td>
 					</tr>
 					<tr>

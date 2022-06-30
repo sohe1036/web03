@@ -35,7 +35,7 @@ public class EditGoodsCtrl extends HttpServlet {
 		//MultipartRequest는 request로 받을 수 x
 		int gno = Integer.parseInt(multi.getParameter("gno"));
 		String gname = multi.getParameter("gname");			//입력된 값을 파라미터로 받아
-		String gimg = "";
+		String gimg =null ;
 		String gtype = multi.getParameter("gtype");
 		int price = Integer.parseInt(multi.getParameter("price"));
 		String gcolor = multi.getParameter("gcolor");
@@ -50,8 +50,6 @@ public class EditGoodsCtrl extends HttpServlet {
 				String name = multi.getFilesystemName("gimg");	//"gimg"의 이름 받아오기 중복일경우 1,2,3
 				File f = multi.getFile(name);
 				gimg = name;
-			}else {
-				gimg = request.getParameter(gimg);
 			}
 			
 		}catch(Exception e) {

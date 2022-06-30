@@ -43,7 +43,7 @@ public class EditReviewCtrl extends HttpServlet {
 		String retitle = multi.getParameter("retitle");
 		String recontent = multi.getParameter("recontent");
 		String redate = multi.getParameter("redate");
-		String reimg="";
+		String reimg=null;
 		int gno = Integer.parseInt(multi.getParameter("gno"));
 		int ono = Integer.parseInt(multi.getParameter("ono"));
 		
@@ -51,8 +51,6 @@ public class EditReviewCtrl extends HttpServlet {
 			if(multi.getFilesystemName("reimg")!=null) {			//파일명이 널이 아니면
 				String name = multi.getFilesystemName("reimg");
 				reimg = name;
-			}else {
-				reimg = request.getParameter(reimg);
 			}
 		
 		}catch(Exception e) {
