@@ -10,9 +10,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
 <title>게시판 목록</title>
 <style>
-#lst_tb { width:700px; margin:0 auto; }
+#lst_tb { width:800px; margin:0 auto; padding: 80px 0;}
 .navbar-link:not(.is-arrowless)::after { display:none; }
-.search_warp { width: 800px; margin: 0 auto;}
+.search_warp { width: 1200px; margin: 0 auto; padding-top: 50px;}
 </style>
 </head>
 <body>
@@ -67,7 +67,5 @@
 </div>
 <jsp:include page="../footer.jsp"></jsp:include>
 
-
-<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>

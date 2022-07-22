@@ -1,3 +1,17 @@
+create table question(
+qno number(30) primary key,
+qtitle varchar2(100) not null,
+qcontent varchar2(800) not null,
+qdate date,
+u_id varchar2(40),
+ano number(30),
+acontent varchar2(800),
+adate date);
+CREATE SEQUENCE seq_question START WITH 1 INCREMENT BY 1;
+insert into question(qno, qtitle, qcontent, qdate,u_id) values (seq_question.nextval,'질문제목1','첫번째 질문 내용입니다.',sysdate,'abc123');
+
+desc question;
+commit;
 create table board (seq number(20) primary key,
 title varchar2(100) not null,
 content varchar2(1000) not null,

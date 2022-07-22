@@ -10,6 +10,9 @@
 %>
 <style>
 #header { margin-top : 10px; }
+*{margin: 0%; padding: 0%;}
+ul,li {list-style: none;}
+a {text-decoration: none; color: #333;}
 </style>
 <header id="header" >
 	<div class="hd_wrap">
@@ -141,6 +144,9 @@
 		          </a>
 		          <a href="${path }/GetPaymentListCtrl" class="button is-primary" >
 		            판매관리
+		          </a>
+		          <a href="${path }/GetQuestionListCtrl" class="button is-primary" >
+		            QnA
 		          </a>
 		          <a href="${path }/AccessListCtrl" class="button is-primary">
 		            접속자관리

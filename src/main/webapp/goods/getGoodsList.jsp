@@ -11,18 +11,31 @@
 <title>상품리스트</title>
 <style>
 .navbar-link:not(.is-arrowless)::after { display:none; }
-#content { margin-top: 30px; }
-.table_warp { width: 1260px; margin: 0 auto;}
+#content { clear: both; }
+.table_warp { width: 1260px; margin: 0 auto; padding-top: 50px;}
 .th { float: left; padding-right: 20px; }
-.menu { float: left; margin-right: 30px; padding-bottom: 50px;}
+.menu { float: left; width: 20%; padding-bottom: 50px;}
+.addgoods {padding:20px;}
 </style>
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
 <div id="content">
+	<div class="banner">
+		<img src="${path1 }/img/banner.jpg" style="width: 100%;">
+	</div>
 	<div class="table_warp">
 		<h2 class="title is-3">상품 리스트</h2>
 		<div class=table>
+			<div class="addgoods">	
+				<ul>
+				<c:if test="${sid=='admin' }">
+					<li>
+						<a href="./goods/addGoodsForm.jsp" class="button is-info">추가</a>
+					</li>
+				</c:if>
+				</ul>	
+			</div>	
 			<div class="table_body">
 				<c:forEach items="${list }" var="goods" varStatus="status">			<!-- 배열을 다시 순서대로 풀어줘 -->
 				<ul class="menu">
@@ -39,15 +52,6 @@
 					<li class="td"><a href="${path1 }/GetGoodsCtrl?gno=${goods.gno }" ><img src=${path1 }/${goods.gimg }></a></li>
 				</ul>
 				</c:forEach>
-			<div class="addgoods">	
-				<ul>
-				<c:if test="${sid=='admin' }">
-					<li>
-						<a href="./goods/addGoodsForm.jsp" class="button is-info">추가</a>
-					</li>
-				</c:if>
-				</ul>	
-			</div>	
 		</div>
 	</div>
 </div>
