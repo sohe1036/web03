@@ -13,6 +13,14 @@
 <body>
 	<div class="content">
 		
+			<table class="table">
+				<tr>
+					<td><input type="text" placeholder="답변입력" style="width:250px; height:150px;"></td>
+				</tr>
+				<tr>
+					<td><button type="button"></button></td>
+				</tr>
+			</table>
 	</div>
 </body>
 </html>
