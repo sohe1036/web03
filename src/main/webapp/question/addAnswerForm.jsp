@@ -12,15 +12,26 @@
 </head>
 <body>
 	<div class="content">
-		
+		<form method="post" action="${path1 }/EditQuestionCtrl">
 			<table class="table">
 				<tr>
-					<td><input type="text" placeholder="답변입력" style="width:250px; height:150px;"></td>
+					<td>
+					<c:if test="${!empty question.acontent }">
+						<input type="text" placeholder="답변입력" name="acontent" value="${question.acontent }" style="width:250px; height:150px;">
+					</c:if>
+					<c:if test="${empty question.acontent }">
+					<input type="text" placeholder="답변입력" name="acontent" style="width:250px; height:150px;">
+					</c:if>
+					<input type="hidden" name="qno" value="${question.qno }">
+					</td>
 				</tr>
 				<tr>
-					<td><button type="button"></button></td>
+					<td>
+						<input type="submit" class="button is-info" value="답변">
+					</td>
 				</tr>
 			</table>
+		</form>	
 	</div>
 </body>
 </html>

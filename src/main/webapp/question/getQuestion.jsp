@@ -13,6 +13,7 @@
 	.content{clear:both; width:100%; padding:80px 0;}
 	.qna_table {width:1000px; margin: 0 auto; }
 	.q_box {width: 800px; display:block; margin: 0 auto; font-size: 20px; border: 1px solid #ddd; padding: 20px;}
+	.a_box {width: 800px; display:block; margin: 0 auto; padding: 20px;}
 	b {padding-right:50px;}
 
 
@@ -33,22 +34,34 @@
 				<li class="con" style="margin-top: 80px;"><span>${question.qcontent }</span></li>			
 			</ul>
 			<c:if test="${question.acontent }">
-			<ul class="a_box">
+			<ul class="a_box" style="margin: 0 auto;">
 				<li><b>${sid }</b>${question.adate }</li>
 				<li><p>${question.acontent }</p></li>
 			</ul>
 			</c:if>
-			<ul>
+			<c:if test="${!empty question.acontent }">
+			<ul class="a_box" style="margin: 0 auto;">
+				<li>
+					관리자
+				</li>
+				<li>
+					${question.adate } &nbsp;&nbsp;
+					${question.acontent }
+				</li>
+			</ul>
+			</c:if>
+			<ul class="a_box" style="margin: 0 auto;">
 				<li>
 				<a href="${path1 }/GetQuestionListCtrl" class="button is-info">목록</a>
 				<c:if test="${sid =='admin' && empty question.acontent }">
-				<button class="button is-info" onclick= "window.open('${path1}/question/addAnswerForm.jsp','addForm','width=500 height=400')">답글달기</button>
+				<a href="${path1 }/AnswerQuestionCtrl?qno=${question.qno }" class="button is-info">답글달기</a>
 				</c:if>
 				<c:if test="${sid =='admin' && !empty question.acontent }">
-				<a href=""class="button is-info">답글수정</a>
+				<a href="${path1 }/AnswerQuestionCtrl?qno=${question.qno }"class="button is-info">답글수정</a>
 				</c:if>
 				</li>
 			</ul>
+			
 		</div>
 	</div>
 

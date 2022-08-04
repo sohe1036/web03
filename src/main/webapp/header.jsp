@@ -13,6 +13,8 @@
 *{margin: 0%; padding: 0%;}
 ul,li {list-style: none;}
 a {text-decoration: none; color: #333;}
+#content {margin-top: 150px; margin-bottom: 150px;}
+.content {margin-top: 150px; margin-bottom: 150px;}
 </style>
 <header id="header" >
 	<div class="hd_wrap">

@@ -110,4 +110,24 @@ public class QuestionDAO {
 		}
 		return cnt;
 	}
+	
+	//질문하기
+	public int addQuestion(QuestionVO vo) {
+		try {
+			conn = JDBCConnection.getConnection();
+			sql = "insert into question (qno, qtitle, qcontent, qdate, u_id) values(seq_question.nextval,?,?,sysdate,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, vo.getQno());
+			pstmt.setString(2, vo.getQtitle());
+			pstmt.setString(3, vo.getQcontent());
+			pstmt.setString(4, vo.getQdate());
+			pstmt.setString(5, vo.getU_id());
+			cnt = pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCConnection.close(pstmt, conn);
+		}
+		return cnt;
+	}
 }
