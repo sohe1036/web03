@@ -11,6 +11,7 @@ CREATE SEQUENCE seq_question START WITH 1 INCREMENT BY 1;
 insert into question(qno, qtitle, qcontent, qdate,u_id) values (seq_question.nextval,'질문제목1','첫번째 질문 내용입니다.',sysdate,'abc123');
 
 desc question;
+select * from question;
 commit;
 create table board (seq number(20) primary key,
 title varchar2(100) not null,

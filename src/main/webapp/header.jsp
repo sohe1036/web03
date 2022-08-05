@@ -89,13 +89,8 @@ a {text-decoration: none; color: #333;}
 		          <a class="navbar-item"  href="${path }/GetBoardListCtrl">
 		            공지사항
 		          </a>
-		          <c:if test="${!empty sid }">	
-		          <a class="navbar-item">
-		            1:1 문의
-		          </a>
-		          </c:if>
-		          <a class="navbar-item">
-		            자주하는 질문 및 답변
+		          <a class="navbar-item" href="${path }/GetQuestionListCtrl">
+		            Q&A
 		          </a>
 		        </div>
 		      </div>

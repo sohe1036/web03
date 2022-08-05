@@ -18,10 +18,10 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+<div class="main_img">
+	<img src="${path }/img/main1.jpg">
+</div>
 <div id="content">
-	<div class="main_img">
-		<img src="${path }/img/main1.jpg">
-	</div>
 
 </div>
 <jsp:include page="footer.jsp"></jsp:include>

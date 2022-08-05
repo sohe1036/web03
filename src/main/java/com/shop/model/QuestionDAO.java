@@ -21,7 +21,7 @@ public class QuestionDAO {
 		ArrayList<QuestionVO> qna = null;
 		try {
 			conn= JDBCConnection.getConnection();
-			sql = "select qno,qtitle,qcontent,to_char(qdate,'yyyy-MM-dd')as qdate,u_id,ano,acontent,to_char(adate,'yyyy-MM-dd') as adate from question order by qdate desc ";
+			sql = "select qno,qtitle,qcontent,to_char(qdate,'yyyy-MM-dd')as qdate,u_id,ano,acontent,to_char(adate,'yyyy-MM-dd') as adate from question order by qno desc ";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -117,11 +117,9 @@ public class QuestionDAO {
 			conn = JDBCConnection.getConnection();
 			sql = "insert into question (qno, qtitle, qcontent, qdate, u_id) values(seq_question.nextval,?,?,sysdate,?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, vo.getQno());
-			pstmt.setString(2, vo.getQtitle());
-			pstmt.setString(3, vo.getQcontent());
-			pstmt.setString(4, vo.getQdate());
-			pstmt.setString(5, vo.getU_id());
+			pstmt.setString(1, vo.getQtitle());
+			pstmt.setString(2, vo.getQcontent());
+			pstmt.setString(3, vo.getU_id());
 			cnt = pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();

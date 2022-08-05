@@ -25,6 +25,7 @@
 	<jsp:include page="../header.jsp" />
 	<div class="content">
 		<div class="qnaTable">
+			<div><a class="button is-primary" href="${path1 }/question/addQuestion.jsp">질문하기</a></div>
 			<ul>
 				<li>
 					<b class="col1">글번호</b>
