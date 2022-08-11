@@ -18,7 +18,7 @@
 <jsp:include page="../header.jsp"></jsp:include>
 <div id="content">
 	<div class="table_warp">
-		<h2 class="title is-3">메인 페이지</h2>
+		<h2 class="title is-3">장바구니 상세</h2>
 		<ul>
 			<li>
 				<br>

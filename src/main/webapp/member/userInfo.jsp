@@ -76,7 +76,12 @@
 					<td colspan="2">
 						<input type="submit" value="수정" class="button is-info" />
 						<input type="reset" value="취소" class="button is-info" />
+						<c:if test="${sid =='admin' }">
 						<a href="${path1 }/GetMemberListCtrl" class="button is-info">목록</a>
+						</c:if>
+						<c:if test="${sid !='admin' }">
+						<a href="${path1 }/MypageDetailCtrl?u_id=${sid }" class="button is-info">마이페이지</a>
+						</c:if>
 						<a href="${path1 }/DelMemberCtrl?u_id=${member.u_id }" class="button is-danger">회원탈퇴</a>		<!-- 회원탈퇴시 id정보 넘겨줘야해 -->
 					</td>
 				</tr>
